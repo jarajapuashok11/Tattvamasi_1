@@ -1,5 +1,12 @@
-import { Link } from 'react-router-dom';
-import { Leaf, Instagram, Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
+import { Link } from "react-router-dom";
+import {
+  Leaf,
+  Instagram,
+  Mail,
+  Phone,
+  MapPin,
+  MessageCircle,
+} from "lucide-react";
 
 export default function Footer() {
   return (
@@ -8,17 +15,29 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 bg-green-600 rounded-full flex items-center justify-center">
-                <Leaf className="w-5 h-5 text-white" />
-              </div>
+            <div className="flex gap-4 items-center">
+              <img
+                src="/icon_cropped.png"
+                className="w-12 h-12 rounded-full"
+              ></img>
               <div>
-                <span className="font-bold text-white text-lg leading-none block">Tatvamasi</span>
-                <span className="text-xs text-green-400 tracking-widest uppercase leading-none block">Organics</span>
+                <div className={`text-green-500 font-extrabold text-md`}>
+                  <span>Tat</span>
+                  <span>Tvam</span>
+                  <span>Asi</span>
+                </div>
+                <div
+                  className={` text-white uppercase font-bold text-xs tracking-wide`}
+                >
+                  <span className="text-sm">O</span>
+                  rganics
+                </div>
               </div>
             </div>
             <p className="text-sm leading-relaxed text-gray-400 mb-5">
-              Premium organic wellness for modern living. Spirulina health shots and plant-based superfood powders crafted with nature's finest ingredients.
+              Premium organic wellness for modern living. Spirulina health shots
+              and plant-based superfood powders crafted with nature's finest
+              ingredients.
             </p>
             <div className="flex items-center gap-3">
               <a
@@ -42,18 +61,23 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Quick Links</h4>
+            <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">
+              Quick Links
+            </h4>
             <ul className="space-y-3 text-sm">
               {[
-                { to: '/shop', label: 'Shop All Products' },
-                { to: '/shop?category=shots', label: 'Spirulina Shots' },
-                { to: '/shop?category=powders', label: 'Organic Powders' },
-                { to: '/about', label: 'About Us' },
-                { to: '/corporate', label: 'Corporate Wellness' },
-                { to: '/blog', label: 'Health Blog' },
-              ].map(link => (
+                { to: "/shop", label: "Shop All Products" },
+                { to: "/shop?category=shots", label: "Spirulina Shots" },
+                { to: "/shop?category=powders", label: "Organic Powders" },
+                { to: "/about", label: "About Us" },
+                { to: "/corporate", label: "Corporate Wellness" },
+                { to: "/blog", label: "Health Blog" },
+              ].map((link) => (
                 <li key={link.to}>
-                  <Link to={link.to} className="hover:text-green-400 transition-colors">
+                  <Link
+                    to={link.to}
+                    className="hover:text-green-400 transition-colors"
+                  >
                     {link.label}
                   </Link>
                 </li>
@@ -63,18 +87,23 @@ export default function Footer() {
 
           {/* Help */}
           <div>
-            <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Help & Info</h4>
+            <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">
+              Help & Info
+            </h4>
             <ul className="space-y-3 text-sm">
               {[
-                { to: '/contact', label: 'Contact Us' },
-                { to: '/contact#faq', label: 'FAQ' },
-                { to: '/contact#returns', label: 'Returns & Refunds' },
-                { to: '/contact#shipping', label: 'Shipping Policy' },
-                { to: '/contact#privacy', label: 'Privacy Policy' },
-                { to: '/contact#terms', label: 'Terms of Service' },
-              ].map(link => (
+                { to: "/contact", label: "Contact Us" },
+                { to: "/contact#faq", label: "FAQ" },
+                { to: "/contact#returns", label: "Returns & Refunds" },
+                { to: "/contact#shipping", label: "Shipping Policy" },
+                { to: "/contact#privacy", label: "Privacy Policy" },
+                { to: "/contact#terms", label: "Terms of Service" },
+              ].map((link) => (
                 <li key={link.to}>
-                  <Link to={link.to} className="hover:text-green-400 transition-colors">
+                  <Link
+                    to={link.to}
+                    className="hover:text-green-400 transition-colors"
+                  >
                     {link.label}
                   </Link>
                 </li>
@@ -84,7 +113,9 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">Contact</h4>
+            <h4 className="text-white font-semibold mb-5 text-sm uppercase tracking-wider">
+              Contact
+            </h4>
             <ul className="space-y-4 text-sm">
               <li className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-green-400 mt-0.5 shrink-0" />
@@ -115,7 +146,8 @@ export default function Footer() {
 
         <div className="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-gray-500">
-            &copy; {new Date().getFullYear()} Tatvamasi Organics. All rights reserved.
+            &copy; {new Date().getFullYear()} Tatvamasi Organics. All rights
+            reserved.
           </p>
           <p className="text-sm text-gray-500">
             Made with care for your wellness journey
