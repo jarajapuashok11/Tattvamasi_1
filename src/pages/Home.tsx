@@ -134,25 +134,37 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 animate-bounce">
-          <div className="w-px h-10 bg-white/30" />
-          <span className="text-white/50 text-xs tracking-widest uppercase">Scroll</span>
-        </div>
+        
       </section>
 
       {/* ── STATS BANNER ────────────────────────────────────────────────────── */}
-      <section className="bg-green-600 py-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat) => (
-              <div key={stat.label} className="text-center">
-                <div className="text-3xl font-bold text-white">{stat.value}</div>
-                <div className="text-green-200 text-sm mt-1">{stat.label}</div>
-              </div>
-            ))}
+<section className="bg-gradient-to-r from-[#14532D] via-[#166534] to-[#4D7C0F] py-12">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+
+      {stats.map((stat) => (
+        <div
+          key={stat.label}
+          className="text-center group"
+        >
+          {/* Number */}
+          <div className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+            {stat.value}
           </div>
+
+          {/* Label */}
+          <div className="text-[#ECFCCB] text-sm md:text-base mt-2 font-medium">
+            {stat.label}
+          </div>
+
+          {/* Small decorative line */}
+          <div className="w-8 h-0.5 bg-[#BEF264] mx-auto mt-3 rounded-full opacity-80" />
         </div>
-      </section>
+      ))}
+
+    </div>
+  </div>
+</section>
 
       {/* ── THE COLLECTION ──────────────────────────────────────────────────── */}
       <section className="py-24 bg-white overflow-hidden">
