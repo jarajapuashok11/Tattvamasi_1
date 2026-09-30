@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import moringaImage from "../assets/hero/01-moringa.jpg";
+import amlaImage from "../assets/hero/02-amla.jpg";
+import beetrootImage from "../assets/hero/03-beetroot.jpg";
+import greenDrinkImage from "../assets/hero/04-green-drink.jpg";
 import {
   ArrowRight, Star, ChevronRight, Leaf, Play, Shield, Award, CheckCircle,
 } from "lucide-react";
@@ -10,9 +14,26 @@ import ProductCard from "../components/ProductCard";
 /* ─── Static Data ─────────────────────────────────────────────────────────── */
 
 const heroSlides = [
-  { image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg", label: "Orange", accent: "#f97316" },
-  { image: "https://images.pexels.com/photos/3622622/pexels-photo-3622622.jpeg", label: "Strawberry", accent: "#ef4444" },
-  { image: "https://images.pexels.com/photos/1346347/pexels-photo-1346347.jpeg", label: "Guava", accent: "#10b981" },
+  {
+    image: moringaImage,
+    label: "Moringa",
+    accent: "#65a30d",
+  },
+  {
+    image: amlaImage,
+    label: "Amla",
+    accent: "#84cc16",
+  },
+  {
+    image: beetrootImage,
+    label: "Beetroot",
+    accent: "#dc2626",
+  },
+  {
+    image: greenDrinkImage,
+    label: "Green Wellness",
+    accent: "#16a34a",
+  },
 ];
 
 const stats = [
