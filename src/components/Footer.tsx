@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="bg-gray-950 text-gray-400">
 
       {/* ── TRUST BAR ─────────────────────────────────────────────────────── */}
-      <div className="border-b border-white/5 py-8">
+      <div className="border-b border-white/5 py-5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
@@ -27,22 +27,22 @@ export default function Footer() {
       </div>
 
       {/* ── MAIN FOOTER ───────────────────────────────────────────────────── */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 mb-14">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-10">
 
           {/* Brand — spans 2 cols on large */}
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-4 mb-5">
+            <div className="flex items-center gap-3 mb-4">
               <img src="/icon_cropped.png" className="w-12 h-12 rounded-full" alt="Tatvamasi logo" />
               <div>
                 <div className="text-green-500 font-extrabold text-lg leading-none">TatTvamAsi</div>
                 <div className="text-white uppercase font-bold text-xs tracking-widest mt-0.5">Organics</div>
               </div>
             </div>
-            <p className="text-sm leading-relaxed text-gray-500 mb-6 max-w-xs">
+            <p className="text-sm leading-relaxed text-gray-500 mb-4 max-w-xs">
               Premium organic spirulina wellness shots and superfood powders — cold-processed, lab-certified, and built for your daily ritual.
             </p>
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-3 mb-4">
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-9 h-9 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-600 transition-colors" aria-label="Instagram">
                 <Instagram className="w-4 h-4" />
               </a>
@@ -61,7 +61,7 @@ export default function Footer() {
 
           {/* Shop */}
           <div>
-            <h4 className="text-white font-semibold mb-5 text-xs uppercase tracking-[0.2em]">Shop</h4>
+            <h4 className="text-white font-semibold mb-3 text-xs uppercase tracking-[0.2em]">Shop</h4>
             <ul className="space-y-3 text-sm">
               {[
                 { to: "/shop", label: "All Products" },
@@ -78,7 +78,7 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="text-white font-semibold mb-5 text-xs uppercase tracking-[0.2em]">Company</h4>
+            <h4 className="text-white font-semibold mb-3 text-xs uppercase tracking-[0.2em]">Company</h4>
             <ul className="space-y-3 text-sm">
               {[
                 { to: "/about", label: "About Us" },
@@ -95,8 +95,8 @@ export default function Footer() {
 
           {/* Support */}
           <div>
-            <h4 className="text-white font-semibold mb-5 text-xs uppercase tracking-[0.2em]">Support</h4>
-            <ul className="space-y-3 text-sm mb-8">
+            <h4 className="text-white font-semibold mb-3 text-xs uppercase tracking-[0.2em]">Support</h4>
+            <ul className="space-y-2 text-sm mb-6">
               {[
                 { to: "/contact", label: "Contact Us" },
                 { to: "/contact", label: "FAQ" },
@@ -110,7 +110,7 @@ export default function Footer() {
               ))}
             </ul>
 
-            <div className="space-y-3 text-sm">
+            <div className="space-y-2 text-sm">
               <a href="tel:+919999999999" className="flex items-center gap-2.5 hover:text-green-400 transition-colors">
                 <Phone className="w-4 h-4 text-green-500 shrink-0" /> +91 99999 99999
               </a>
@@ -126,7 +126,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="border-t border-white/5 pt-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-gray-600">
             &copy; {new Date().getFullYear()} Tatvamasi Organics Pvt. Ltd. All rights reserved.
           </p>

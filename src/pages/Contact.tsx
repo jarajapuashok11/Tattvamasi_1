@@ -1,15 +1,11 @@
 import { useState } from 'react';
-import { Mail, Phone, MapPin, MessageCircle, CheckCircle, ArrowRight, Building2, Truck, Users } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageCircle, CheckCircle, ArrowRight } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-
-  const [distForm, setDistForm] = useState({ company: '', contact: '', email: '', city: '', region: '', experience: '', message: '' });
-  const [distSubmitted, setDistSubmitted] = useState(false);
-  const [distLoading, setDistLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,16 +15,6 @@ export default function Contact() {
     setForm({ name: '', email: '', phone: '', subject: '', message: '' });
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 5000);
-  };
-
-  const handleDistSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setDistLoading(true);
-    await supabase.from('distributor_inquiries').insert([distForm]);
-    setDistLoading(false);
-    setDistForm({ company: '', contact: '', email: '', city: '', region: '', experience: '', message: '' });
-    setDistSubmitted(true);
-    setTimeout(() => setDistSubmitted(false), 5000);
   };
 
   return (
@@ -139,100 +125,6 @@ export default function Contact() {
                     <><CheckCircle className="w-5 h-5" /> Message Sent!</>
                   ) : loading ? 'Sending...' : (
                     <>Send Message <ArrowRight className="w-4 h-4" /></>
-                  )}
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── DISTRIBUTOR INQUIRY ─────────────────────────────────────────────── */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-
-            {/* Left — content */}
-            <div>
-              <span className="text-green-600 font-bold text-xs uppercase tracking-[0.3em] block mb-4">Partner With Us</span>
-              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6" style={{ letterSpacing: '-0.02em' }}>
-                Distributor Inquiry
-              </h2>
-              <p className="text-gray-600 text-lg leading-[1.8] mb-10">
-                We're actively expanding our distribution network across India. If you're a distributor, retailer, or wellness entrepreneur, we'd love to build a partnership with you.
-              </p>
-
-              <div className="space-y-6">
-                {[
-                  { icon: Building2, title: 'Attractive Margins', desc: 'Competitive distributor pricing with tiered margin structures as your business scales.' },
-                  { icon: Truck, title: 'Reliable Supply Chain', desc: 'Consistent stock availability, cold-chain logistics support, and dedicated account management.' },
-                  { icon: Users, title: 'Marketing Support', desc: 'Co-branded materials, digital assets, and customer acquisition support for your territory.' },
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-4">
-                    <div className="w-11 h-11 bg-green-100 rounded-xl flex items-center justify-center shrink-0">
-                      <item.icon className="w-5 h-5 text-green-600" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-gray-900 mb-1">{item.title}</h3>
-                      <p className="text-gray-600 text-sm leading-[1.7]">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right — form */}
-            <div className="bg-white rounded-3xl p-10 border border-gray-100 shadow-sm">
-              <h3 className="text-2xl font-bold text-gray-900 mb-8">Apply to Distribute</h3>
-              <form onSubmit={handleDistSubmit} className="space-y-5">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Company Name</label>
-                    <input type="text" required placeholder="Your company" value={distForm.company} onChange={e => setDistForm(p => ({ ...p, company: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-500" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Contact Person</label>
-                    <input type="text" required placeholder="Your name" value={distForm.contact} onChange={e => setDistForm(p => ({ ...p, contact: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-500" />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Business Email</label>
-                  <input type="email" required placeholder="business@company.com" value={distForm.email} onChange={e => setDistForm(p => ({ ...p, email: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-500" />
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">City</label>
-                    <input type="text" placeholder="City" value={distForm.city} onChange={e => setDistForm(p => ({ ...p, city: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-500" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">State / Region</label>
-                    <input type="text" placeholder="State" value={distForm.region} onChange={e => setDistForm(p => ({ ...p, region: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-500" />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Distribution Experience</label>
-                  <select value={distForm.experience} onChange={e => setDistForm(p => ({ ...p, experience: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-500">
-                    <option value="">Select experience level</option>
-                    <option value="new">New to distribution</option>
-                    <option value="1-3">1–3 years</option>
-                    <option value="3-7">3–7 years</option>
-                    <option value="7+">7+ years</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Tell Us About Your Network</label>
-                  <textarea rows={3} placeholder="Number of retailers, current brands, territory coverage..." value={distForm.message} onChange={e => setDistForm(p => ({ ...p, message: e.target.value }))} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-green-500 resize-none" />
-                </div>
-
-                <button type="submit" disabled={distLoading} className="w-full py-4 bg-green-600 text-white rounded-full font-semibold hover:bg-green-700 transition-colors disabled:opacity-60 flex items-center justify-center gap-2">
-                  {distSubmitted ? (
-                    <><CheckCircle className="w-5 h-5" /> Application Received!</>
-                  ) : distLoading ? 'Submitting...' : (
-                    <>Submit Application <ArrowRight className="w-4 h-4" /></>
                   )}
                 </button>
               </form>

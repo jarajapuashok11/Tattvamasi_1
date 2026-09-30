@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
-  ArrowRight, Star, ChevronRight, Leaf, Play,
+  ArrowRight, Star, ChevronRight, Leaf, Play, Shield, Award, CheckCircle,
 } from "lucide-react";
 import { supabase } from "../lib/supabase";
 import { Product, Testimonial } from "../types";
@@ -278,17 +278,31 @@ export default function Home() {
         </section>
       )}
 
-      {/* ── NEWSLETTER / CTA ────────────────────────────────────────────────── */}
-      <section className="py-24 bg-white">
-        <div className="max-w-3xl mx-auto px-4 text-center">
-          <Leaf className="w-10 h-10 text-green-500 mx-auto mb-6" />
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Start Your Wellness Journey</h2>
-          <p className="text-gray-500 text-lg mb-10">
-            Join thousands of health-conscious individuals who make Tatvamasi part of their daily ritual.
-          </p>
-          <Link to="/shop" className="inline-flex items-center gap-2 px-10 py-5 bg-green-600 hover:bg-green-700 text-white font-bold rounded-full text-lg transition-all hover:shadow-lg hover:shadow-green-200">
-            Explore All Products <ArrowRight className="w-5 h-5" />
-          </Link>
+      {/* ── CERTIFICATIONS ──────────────────────────────────────────────────── */}
+      <section className="py-24 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <span className="text-green-600 font-bold text-xs uppercase tracking-[0.3em] block mb-4">Certifications</span>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Certified for Your Confidence</h2>
+            <p className="text-gray-500 max-w-xl mx-auto">Every product is backed by rigorous organic certification and food safety standards.</p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { name: "India Organic", body: "APEDA, Govt. of India", icon: Leaf },
+              { name: "FSSAI Licensed", body: "Food Safety & Standards Authority", icon: Shield },
+              { name: "GMP Certified", body: "Good Manufacturing Practice", icon: Award },
+              { name: "ISO 22000", body: "Food Safety Management System", icon: CheckCircle },
+            ].map((cert, i) => (
+              <div key={i} className="group text-center p-8 rounded-2xl border border-gray-100 hover:border-green-200 hover:shadow-lg transition-all duration-500">
+                <div className="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center mb-5 mx-auto group-hover:bg-green-600 transition-colors duration-500">
+                  <cert.icon className="w-7 h-7 text-green-600 group-hover:text-white transition-colors duration-500" />
+                </div>
+                <h3 className="font-bold text-gray-900 mb-1">{cert.name}</h3>
+                <p className="text-gray-500 text-xs leading-relaxed">{cert.body}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

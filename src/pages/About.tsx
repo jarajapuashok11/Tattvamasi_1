@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom';
-import { Leaf, Heart, Zap, Users, ArrowRight, CheckCircle, FlaskConical, Truck, Sprout } from 'lucide-react';
+import { Leaf, Heart, Zap, Users, CheckCircle, FlaskConical, Truck, Sprout } from 'lucide-react';
 
 const coreValues = [
   {
@@ -21,21 +20,6 @@ const coreValues = [
     icon: Users,
     title: 'Community First',
     desc: 'Supporting organic farmers, empowering customers, and building a wellness movement. We invest directly in farmer communities and sustainable agriculture practices.',
-  },
-];
-
-const whyChoose = [
-  {
-    title: 'Premium Sourcing',
-    desc: 'We partner exclusively with certified organic farms, ensuring every ingredient meets exacting quality standards before reaching your bottle.',
-  },
-  {
-    title: 'Cold Preservation',
-    desc: 'Our cold-processing methods preserve heat-sensitive nutrients and enzymes that conventional processing destroys, maximizing bioavailability.',
-  },
-  {
-    title: 'Transparent Practices',
-    desc: 'Complete traceability from farm to bottle. Every ingredient source, lab result, and process step is shared openly with our customers.',
   },
 ];
 
@@ -253,66 +237,6 @@ export default function About() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ── WHY CHOOSE TATVAMASI ───────────────────────────────────────────── */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="text-green-600 font-bold text-xs uppercase tracking-[0.3em] block mb-4">The Tatvamasi Difference</span>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Why Choose Tatvamasi</h2>
-            <p className="text-gray-500 max-w-xl mx-auto">Three pillars that set our approach apart from every other wellness brand.</p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
-            {/* Left — 3 stacked cards */}
-            <div className="flex flex-col gap-6">
-              {whyChoose.map((item, i) => (
-                <div key={i} className="group bg-white rounded-2xl p-7 border border-gray-100 hover:border-green-300 hover:shadow-lg transition-all duration-500">
-                  <div className="inline-flex items-center justify-center w-10 h-10 bg-green-100 rounded-lg text-green-700 font-bold text-sm mb-4 group-hover:bg-green-600 group-hover:text-white transition-colors">
-                    0{i + 1}
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-3 group-hover:text-green-700 transition-colors" style={{ letterSpacing: '-0.01em' }}>
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm leading-[1.7] mb-5">{item.desc}</p>
-                  <a href="#" className="inline-flex items-center gap-2 text-green-600 font-semibold text-sm hover:text-green-700 group/link">
-                    Read More
-                    <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                  </a>
-                </div>
-              ))}
-            </div>
-
-            {/* Right — image */}
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-              <img src="https://images.pexels.com/photos/3822621/pexels-photo-3822621.jpeg" alt="Why Choose Tatvamasi" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                <h4 className="text-2xl font-bold mb-2">Wellness Excellence</h4>
-                <p className="text-white/80 text-sm leading-relaxed">
-                  Trusted by thousands of health-conscious individuals and leading corporates across India.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── CTA ────────────────────────────────────────────────────────────── */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-3xl mx-auto px-4 text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-8">
-            <Leaf className="w-8 h-8 text-green-600" />
-          </div>
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">Experience the Difference</h2>
-          <p className="text-gray-500 text-lg leading-relaxed mb-10 max-w-xl mx-auto">
-            Join thousands who have transformed their health and energy with Tatvamasi's premium organic superfoods.
-          </p>
-          <Link to="/shop" className="inline-flex items-center gap-2 px-10 py-5 bg-green-600 text-white font-bold rounded-full text-lg hover:bg-green-700 transition-colors hover:shadow-lg hover:shadow-green-200">
-            Shop Now <ArrowRight className="w-5 h-5" />
-          </Link>
         </div>
       </section>
 
