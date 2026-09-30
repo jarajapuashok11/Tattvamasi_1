@@ -138,7 +138,13 @@ export default function Home() {
       </section>
 
       {/* ── STATS BANNER ────────────────────────────────────────────────────── */}
-<section className="bg-gradient-to-r from-[#14532D] via-[#166534] to-[#4D7C0F] py-12">
+<div className="text-3xl md:text-4xl font-bold text-white">
+  {stat.value}
+</div>
+
+<div className="text-[#DCFCE7] text-sm md:text-base mt-2">
+  {stat.label}
+</div>
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
 
