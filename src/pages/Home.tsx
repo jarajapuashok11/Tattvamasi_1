@@ -81,11 +81,25 @@ export default function Home() {
       {/* ── HERO ────────────────────────────────────────────────────────────── */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         {heroSlides.map((slide, i) => (
-          <div key={i} className={`absolute inset-0 transition-opacity duration-1000 ${i === activeSlide ? "opacity-100" : "opacity-0"}`}>
-            <img src={slide.image} alt={slide.label} className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20" />
-          </div>
-        ))}
+  <div
+    key={i}
+    className={`absolute inset-0 transition-opacity duration-1000 ${
+      i === activeSlide ? "opacity-100" : "opacity-0"
+    }`}
+  >
+    <img
+      src={slide.image}
+      alt={slide.label}
+      className="w-full h-full object-cover"
+    />
+
+    {/* Overall dark overlay */}
+    <div className="absolute inset-0 bg-black/35" />
+
+    {/* Stronger text-side overlay */}
+    <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-transparent" />
+  </div>
+))}
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
           <div className="max-w-2xl">
