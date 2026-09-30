@@ -256,9 +256,9 @@ export default function Home() {
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <h3 className="text-2xl font-bold text-white mb-2">{flavour.name}</h3>
                   <p className="text-gray-300 text-sm leading-relaxed mb-4">{flavour.desc}</p>
-                  <span className="inline-flex items-center gap-1 text-green-400 text-sm font-medium group-hover:gap-2 transition-all">
-                    Shop ₹120 <ChevronRight className="w-4 h-4" />
-                  </span>
+                  <span className="inline-flex items-center gap-1 text-[#BBF7D0] text-sm font-semibold group-hover:text-white group-hover:gap-2 transition-all">
+  Shop ₹120 <ChevronRight className="w-4 h-4" />
+</span>
                 </div>
               </Link>
             ))}
