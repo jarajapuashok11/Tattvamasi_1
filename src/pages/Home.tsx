@@ -90,7 +90,7 @@ export default function Home() {
     <img
       src={slide.image}
       alt={slide.label}
-      className="w-full h-full object-contain bg-black"
+      className="w-full h-full object-contain"
     />
 
     {/* Overall dark overlay */}
