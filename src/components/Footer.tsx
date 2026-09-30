@@ -67,7 +67,6 @@ export default function Footer() {
                 { to: "/shop", label: "All Products" },
                 { to: "/shop?category=shots", label: "Spirulina Shots" },
                 { to: "/shop?category=powders", label: "Organic Powders" },
-                { to: "/corporate", label: "Corporate Wellness" },
                 { to: "/cart", label: "My Cart" },
               ].map(link => (
                 <li key={link.to}>
@@ -85,7 +84,6 @@ export default function Footer() {
                 { to: "/about", label: "About Us" },
                 { to: "/blog", label: "Health Blog" },
                 { to: "/about#manufacturing", label: "Manufacturing" },
-                { to: "/corporate", label: "B2B / Wholesale" },
                 { to: "/contact#distributor", label: "Become a Distributor" },
               ].map(link => (
                 <li key={link.to}>
