@@ -108,29 +108,51 @@ export default function Home() {
             </span>
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6" style={{ letterSpacing: '-0.02em' }}>
               Nature's Power.<br />
-              <span className="text-green-400">In Every Sip.</span>
+              <span className="text-[#22C55E]">In Every Sip.</span>
             </h1>
             <p className="text-xl text-gray-200 leading-relaxed mb-10 max-w-xl">
               60ml spirulina wellness shots and premium organic superfood powders — cold-pressed, lab-certified, and made for your daily ritual.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-14">
-              <Link to="/shop" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-green-500 hover:bg-green-400 text-white font-semibold rounded-full text-lg transition-all hover:shadow-lg hover:shadow-green-500/30">
-                Shop Now <ArrowRight className="w-5 h-5" />
-              </Link>
+              <Link
+  to="/shop"
+  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#22C55E] hover:bg-[#16A34A] text-white font-semibold rounded-full text-lg transition-all hover:shadow-lg hover:shadow-green-500/30"
+>
+  Shop Now
+  <ArrowRight className="w-5 h-5" />
+</Link>
               <Link to="/about" className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold rounded-full text-lg hover:bg-white/20 transition-all">
                 Our Story
               </Link>
             </div>
 
             <div className="flex items-center gap-6">
-              <span className="text-gray-400 text-sm">Available flavours:</span>
-              {heroSlides.map((slide, i) => (
-                <button key={i} onClick={() => setActiveSlide(i)} className={`text-sm font-medium transition-all duration-200 ${i === activeSlide ? "text-white border-b-2 border-green-400 pb-0.5" : "text-gray-400 hover:text-gray-200"}`}>
-                  {slide.label}
-                </button>
-              ))}
-            </div>
+  <span className="text-gray-300 text-sm">
+    Available flavours:
+  </span>
+
+  {heroSlides.map((slide, i) => (
+    <button
+      key={i}
+      onClick={() => setActiveSlide(i)}
+      className={`relative text-sm font-medium transition-colors duration-300 ${
+        i === activeSlide
+          ? "text-white"
+          : "text-gray-400 hover:text-white"
+      }`}
+    >
+      {slide.label}
+
+      {/* Animated underline */}
+      <span
+        className={`absolute -bottom-2 left-0 h-0.5 bg-[#22C55E] transition-all duration-500 ease-out ${
+          i === activeSlide ? "w-full" : "w-0"
+        }`}
+      />
+    </button>
+  ))}
+</div>
           </div>
         </div>
 
