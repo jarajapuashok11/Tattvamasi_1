@@ -170,7 +170,7 @@ export default function Home() {
 
     </div>
   </div>
-</section>
+
 
       {/* ── THE COLLECTION ──────────────────────────────────────────────────── */}
       <section className="py-24 bg-white overflow-hidden">
