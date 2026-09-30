@@ -138,39 +138,33 @@ export default function Home() {
       </section>
 
       {/* ── STATS BANNER ────────────────────────────────────────────────────── */}
-<div className="text-3xl md:text-4xl font-bold text-white">
-  {stat.value}
-</div>
-
-<div className="text-[#DCFCE7] text-sm md:text-base mt-2">
-  {stat.label}
-</div>
+<section className="bg-[#15803D] py-12">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
 
       {stats.map((stat) => (
         <div
           key={stat.label}
-          className="text-center group"
+          className="text-center"
         >
           {/* Number */}
-          <div className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+          <div className="text-3xl md:text-4xl font-bold text-white">
             {stat.value}
           </div>
 
           {/* Label */}
-          <div className="text-[#ECFCCB] text-sm md:text-base mt-2 font-medium">
+          <div className="text-[#DCFCE7] text-sm md:text-base mt-2 font-medium">
             {stat.label}
           </div>
 
-          {/* Small decorative line */}
-          <div className="w-8 h-0.5 bg-[#BEF264] mx-auto mt-3 rounded-full opacity-80" />
+          {/* Decorative line */}
+          <div className="w-8 h-0.5 bg-[#BBF7D0] mx-auto mt-3 rounded-full" />
         </div>
       ))}
 
     </div>
   </div>
-
+</section>
 
       {/* ── THE COLLECTION ──────────────────────────────────────────────────── */}
       <section className="py-24 bg-white overflow-hidden">
