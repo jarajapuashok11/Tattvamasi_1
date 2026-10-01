@@ -355,10 +355,7 @@ export default function Home() {
                 className="
                   absolute
                   inset-0
-                  bg-gradient-to-t
-                  from-black/90
-                  via-black/45
-                  to-transparent
+                 bg-red-500
                 "
               />
 
