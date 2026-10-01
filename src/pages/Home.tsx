@@ -355,7 +355,7 @@ export default function Home() {
                 className="
                   absolute
                   inset-0
-                 bg-red-500
+                  bg-red-500
                 "
               />
 
