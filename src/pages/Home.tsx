@@ -351,13 +351,10 @@ export default function Home() {
             >
 
               {/* DARK TRANSPARENT GRADIENT */}
-              <div
-                className="
-                  absolute
-                  inset-0
-                  bg-red-500
-                "
-              />
+                <div
+  className="absolute inset-0 !bg-red-500"
+  style={{ backgroundColor: "red" }}
+/>
 
               {/* HOVER CONTENT */}
               <div
