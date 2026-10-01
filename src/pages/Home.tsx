@@ -12,6 +12,7 @@ import moringaImage from "../assets/hero/01-moringa.jpg";
 import amlaImage from "../assets/hero/02-amla.jpg";
 import beetrootImage from "../assets/hero/03-beetroot.jpg";
 import greenDrinkImage from "../assets/hero/04-green-drink.jpg";
+import guavaShotCollection from "../assets/collection/guava.png";
 import {
   ArrowRight, Star, ChevronRight, Leaf, Play, Shield, Award, CheckCircle,
 } from "lucide-react";
@@ -516,39 +517,100 @@ export default function Home() {
       </section>
 
       {/* ── FLAVOURS ────────────────────────────────────────────────────────── */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="text-green-600 font-bold text-sm uppercase tracking-[0.3em] block mb-4">Spirulina Shots</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">3 Flavours. 1 Daily Ritual.</h2>
-            <p className="text-gray-500 max-w-xl mx-auto text-lg mb-6">Each 60ml shot is a concentrated wellness boost — crafted to taste as good as it works.</p>
-            <div className="w-20 h-1.5 bg-green-500 mx-auto rounded-full" />
+<section className="py-24 bg-gray-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <div className="text-center mb-16">
+      <span className="text-green-600 font-bold text-sm uppercase tracking-[0.3em] block mb-4">
+        Wellness Shots
+      </span>
+
+      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        3 Flavours. 1 Daily Ritual.
+      </h2>
+
+      <p className="text-gray-500 max-w-xl mx-auto text-lg mb-6">
+        Each 60ml shot is a concentrated wellness boost — crafted to taste
+        as good as it works.
+      </p>
+
+      <div className="w-20 h-1.5 bg-green-500 mx-auto rounded-full" />
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {[
+        {
+          name: "Orange Shot",
+          slug: "spirulina-orange-shot",
+          desc: "Citrus freshness meets spirulina superfood for a bright and refreshing daily wellness boost.",
+          image: orangeShotCollection,
+          color: "from-orange-400 to-amber-300",
+          badge: "Most Popular",
+        },
+        {
+          name: "Strawberry Shot",
+          slug: "spirulina-strawberry-shot",
+          desc: "Sweet and refreshing strawberry flavour blended with nutrient-rich spirulina for your daily ritual.",
+          image: strawberryShotCollection,
+          color: "from-red-400 to-rose-300",
+          badge: "Fan Favourite",
+        },
+        {
+          name: "Guava Shot",
+          slug: "spirulina-guava-shot",
+          desc: "Tropical guava freshness combined with spirulina for a delicious and vibrant wellness shot.",
+          image: guavaShotCollection,
+          color: "from-green-400 to-emerald-300",
+          badge: "New",
+        },
+      ].map((flavour) => (
+        <Link
+          key={flavour.name}
+          to={`/product/${flavour.slug}`}
+          className="group relative overflow-hidden rounded-3xl h-96 block hover:shadow-2xl transition-all duration-500"
+        >
+
+          {/* Product Image */}
+          <img
+            src={flavour.image}
+            alt={flavour.name}
+            className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+          />
+
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+
+          {/* Badge */}
+          <div className="absolute top-4 left-4">
+            <span
+              className={`inline-block px-3 py-1 rounded-full text-xs font-bold text-white bg-gradient-to-r ${flavour.color}`}
+            >
+              {flavour.badge}
+            </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { name: "Orange", slug: "spirulina-orange-shot", desc: "Citrus power meets spirulina superfood for the ultimate immunity and energy boost.", image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg", color: "from-orange-400 to-amber-300", badge: "Most Popular" },
-              { name: "Strawberry", slug: "spirulina-strawberry-shot", desc: "Sweet, tangy antioxidant burst with ripe strawberries and nutrient-dense spirulina.", image: "https://images.pexels.com/photos/3622622/pexels-photo-3622622.jpeg", color: "from-red-400 to-rose-300", badge: "Fan Favourite" },
-              { name: "Guava Mixed Fruit", slug: "spirulina-guava-shot", desc: "Tropical immunity powerhouse packed with guava, mixed fruits, and spirulina.", image: "https://images.pexels.com/photos/1346347/pexels-photo-1346347.jpeg", color: "from-green-400 to-emerald-300", badge: "Highest Vitamin C" },
-            ].map((flavour) => (
-              <Link key={flavour.name} to={`/product/${flavour.slug}`} className="group relative overflow-hidden rounded-3xl h-96 block hover:shadow-2xl transition-all duration-500">
-                <img src={flavour.image} alt={flavour.name} className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-                <div className="absolute top-4 left-4">
-                  <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold text-white bg-gradient-to-r ${flavour.color}`}>{flavour.badge}</span>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="text-2xl font-bold text-white mb-2">{flavour.name}</h3>
-                  <p className="text-gray-300 text-sm leading-relaxed mb-4">{flavour.desc}</p>
-                  <span className="inline-flex items-center gap-1 text-[#BBF7D0] text-sm font-semibold group-hover:text-white group-hover:gap-2 transition-all">
-  Shop ₹120 <ChevronRight className="w-4 h-4" />
-</span>
-                </div>
-              </Link>
-            ))}
+          {/* Content */}
+          <div className="absolute bottom-0 left-0 right-0 p-6">
+
+            <h3 className="text-2xl font-bold text-white mb-2">
+              {flavour.name}
+            </h3>
+
+            <p className="text-gray-300 text-sm leading-relaxed mb-4">
+              {flavour.desc}
+            </p>
+
+            <span className="inline-flex items-center gap-1 text-[#BBF7D0] text-sm font-semibold group-hover:text-white group-hover:gap-2 transition-all">
+              Shop ₹120
+              <ChevronRight className="w-4 h-4" />
+            </span>
+
           </div>
-        </div>
-      </section>
+        </Link>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* ── FEATURED PRODUCTS ───────────────────────────────────────────────── */}
       <section className="py-24 bg-white">
