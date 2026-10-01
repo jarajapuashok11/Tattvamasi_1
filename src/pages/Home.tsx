@@ -517,12 +517,13 @@ export default function Home() {
       </section>
 
       {/* ── FLAVOURS ────────────────────────────────────────────────────────── */}
-<section className="py-24 bg-gray-50">
+<section className="py-24 bg-white">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
+    {/* Heading */}
     <div className="text-center mb-16">
       <span className="text-green-600 font-bold text-sm uppercase tracking-[0.3em] block mb-4">
-        Wellness Shots
+        Spirulina Shots
       </span>
 
       <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
@@ -537,14 +538,16 @@ export default function Home() {
       <div className="w-20 h-1.5 bg-green-500 mx-auto rounded-full" />
     </div>
 
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {/* Three Shot Cards */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16">
+
       {[
         {
           name: "Orange Shot",
           slug: "spirulina-orange-shot",
           desc: "Citrus freshness meets spirulina superfood for a bright and refreshing daily wellness boost.",
           image: orangeShotCollection,
-          color: "from-orange-400 to-amber-300",
+          color: "from-orange-500 to-amber-400",
           badge: "Most Popular",
         },
         {
@@ -552,7 +555,7 @@ export default function Home() {
           slug: "spirulina-strawberry-shot",
           desc: "Sweet and refreshing strawberry flavour blended with nutrient-rich spirulina for your daily ritual.",
           image: strawberryShotCollection,
-          color: "from-red-400 to-rose-300",
+          color: "from-red-500 to-rose-400",
           badge: "Fan Favourite",
         },
         {
@@ -560,54 +563,80 @@ export default function Home() {
           slug: "spirulina-guava-shot",
           desc: "Tropical guava freshness combined with spirulina for a delicious and vibrant wellness shot.",
           image: guavaShotCollection,
-          color: "from-green-400 to-emerald-300",
+          color: "from-green-500 to-emerald-400",
           badge: "New",
         },
       ].map((flavour) => (
         <Link
           key={flavour.name}
           to={`/product/${flavour.slug}`}
-          className="group relative overflow-hidden rounded-3xl h-96 block hover:shadow-2xl transition-all duration-500"
+          className="group relative mx-auto w-full max-w-[360px]"
         >
 
-          {/* Product Image */}
-          <img
-            src={flavour.image}
-            alt={flavour.name}
-            className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-          />
+          {/* CIRCULAR IMAGE */}
+          <div className="relative aspect-square w-full rounded-full overflow-hidden bg-gray-100 shadow-lg group-hover:shadow-2xl transition-shadow duration-500">
 
-          {/* Dark Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+            {/* Background Image */}
+            <img
+              src={flavour.image}
+              alt={flavour.name}
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+            />
 
-          {/* Badge */}
-          <div className="absolute top-4 left-4">
-            <span
-              className={`inline-block px-3 py-1 rounded-full text-xs font-bold text-white bg-gradient-to-r ${flavour.color}`}
-            >
-              {flavour.badge}
-            </span>
+            {/* Dark transparent hover overlay */}
+            <div className="absolute inset-0 rounded-full bg-black/0 group-hover:bg-black/55 transition-all duration-500" />
+
+            {/* Badge */}
+            <div className="absolute top-5 right-5 z-20">
+              <span
+                className={`inline-block px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-wider text-white bg-gradient-to-r ${flavour.color} shadow-lg`}
+              >
+                {flavour.badge}
+              </span>
+            </div>
+
+            {/* Hover Content */}
+            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 drop-shadow-lg">
+                {flavour.name}
+              </h3>
+
+              <p className="text-white text-sm md:text-base leading-relaxed max-w-[270px] mb-6 drop-shadow-md">
+                {flavour.desc}
+              </p>
+
+              <span className="inline-flex items-center justify-center gap-2 px-7 py-3 bg-white text-gray-900 rounded-full text-xs font-bold uppercase tracking-wider shadow-xl group-hover:scale-105 transition-transform duration-300">
+                View Product
+                <ChevronRight className="w-4 h-4" />
+              </span>
+
+            </div>
           </div>
 
-          {/* Content */}
-          <div className="absolute bottom-0 left-0 right-0 p-6">
+          {/* Product Name Under Circle */}
+          <div className="mt-7 text-center transition-all duration-300 group-hover:opacity-0 group-hover:translate-y-2">
 
-            <h3 className="text-2xl font-bold text-white mb-2">
+            <h3 className="text-xl md:text-2xl font-semibold text-gray-900">
               {flavour.name}
             </h3>
 
-            <p className="text-gray-300 text-sm leading-relaxed mb-4">
-              {flavour.desc}
+            <p className="mt-2 text-sm font-medium text-green-700">
+              {flavour.name === "Orange Shot" &&
+                "Citrus freshness. Naturally bright."}
+
+              {flavour.name === "Strawberry Shot" &&
+                "Berry freshness. Naturally vibrant."}
+
+              {flavour.name === "Guava Shot" &&
+                "Tropical freshness. Naturally delicious."}
             </p>
 
-            <span className="inline-flex items-center gap-1 text-[#BBF7D0] text-sm font-semibold group-hover:text-white group-hover:gap-2 transition-all">
-              Shop ₹120
-              <ChevronRight className="w-4 h-4" />
-            </span>
-
           </div>
+
         </Link>
       ))}
+
     </div>
   </div>
 </section>
