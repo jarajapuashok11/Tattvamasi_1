@@ -1,5 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import moringaCollection from "../assets/collection/moringa.jpg";
+import amlaCollection from "../assets/collection/amla.jpg";
+import spirulinaCollection from "../assets/collection/spirulina.jpg";
+import beetrootCollection from "../assets/collection/beetroot.jpg";
+import turmericCollection from "../assets/collection/turmeric.jpg";
+import ashwagandhaCollection from "../assets/collection/ashwagandha.jpg";
+import orangeShotCollection from "../assets/collection/orange-shot.jpg";
+import strawberryShotCollection from "../assets/collection/strawberry-shot.jpg";
 import moringaImage from "../assets/hero/01-moringa.jpg";
 import amlaImage from "../assets/hero/02-amla.jpg";
 import beetrootImage from "../assets/hero/03-beetroot.jpg";
@@ -44,14 +52,70 @@ const stats = [
 ];
 
 const products = [
-  { name: "Orange Juice", image: "https://images.unsplash.com/photo-1600271886742-f049cd5bba3f", category: "Citrus", badge: "Fresh" },
-  { name: "Strawberry Smoothie", image: "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4", category: "Berry", badge: "Popular" },
-  { name: "Watermelon Juice", image: "https://images.unsplash.com/photo-1622597467836-f3285f2131b8", category: "Summer", badge: "Cool" },
-  { name: "Mango Shake", image: "https://images.unsplash.com/photo-1553530666-ba11a7da3888", category: "Tropical", badge: "Sweet" },
-  { name: "Kiwi Juice", image: "https://images.unsplash.com/photo-1610970881699-44a5587cabec", category: "Vitamin C", badge: null },
-  { name: "Pineapple Juice", image: "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b", category: "Tropical", badge: "Refreshing" },
-  { name: "Mixed Berry Juice", image: "https://images.unsplash.com/photo-1502741338009-cac2772e18bc", category: "Antioxidant", badge: null },
-  { name: "Green Detox Juice", image: "https://images.unsplash.com/photo-1613478223719-2ab802602423", category: "Healthy", badge: "Detox" },
+  {
+    name: "Moringa Powder",
+    image: moringaCollection,
+    tagline: "Nature’s Green Power.",
+    description:
+      "A nutrient-rich green superfood for your everyday routine.",
+    badge: "Plant Power",
+  },
+  {
+    name: "Amla Powder",
+    image: amlaCollection,
+    tagline: "The Indian Vitamin C Classic.",
+    description:
+      "Naturally rich in vitamin C and antioxidants, treasured for generations.",
+    badge: "Traditional",
+  },
+  {
+    name: "Spirulina Powder",
+    image: spirulinaCollection,
+    tagline: "Deep Green. Naturally Powerful.",
+    description:
+      "A nutrient-rich superfood packed with protein, minerals and nutrients.",
+    badge: "Superfood",
+  },
+  {
+    name: "Beetroot Powder",
+    image: beetrootCollection,
+    tagline: "A Bold Root, Beautifully Pure.",
+    description:
+      "Vibrant beetroot powder with naturally occurring plant nutrients.",
+    badge: "Natural",
+  },
+  {
+    name: "Turmeric Powder",
+    image: turmericCollection,
+    tagline: "Golden Wellness, Naturally.",
+    description:
+      "A warm, earthy root traditionally valued for its natural plant compounds.",
+    badge: "Coming Soon",
+  },
+  {
+    name: "Ashwagandha Powder",
+    image: ashwagandhaCollection,
+    tagline: "Rooted in Calm.",
+    description:
+      "A traditional botanical valued for everyday balance and wellness.",
+    badge: "Coming Soon",
+  },
+  {
+    name: "Orange Shot",
+    image: orangeShotCollection,
+    tagline: "Brighten Your Daily Ritual.",
+    description:
+      "A refreshing citrus shot with a naturally vibrant, zesty character.",
+    badge: "Fresh",
+  },
+  {
+    name: "Strawberry Shot",
+    image: strawberryShotCollection,
+    tagline: "Berry Fresh. Naturally Bright.",
+    description:
+      "A refreshing strawberry blend made for a delicious daily moment.",
+    badge: "Popular",
+  },
 ];
 
 /* ─── Component ────────────────────────────────────────────────────────────── */
@@ -209,7 +273,55 @@ export default function Home() {
                 )}
                 <div className="relative aspect-square w-full max-w-[280px] rounded-full overflow-hidden bg-gray-50 shadow-sm">
                   <img src={product.image} alt={product.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-green-900/90 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex flex-col items-center justify-center p-8 text-center">
+                  <div
+  className="
+    absolute inset-0
+    rounded-full
+    opacity-0
+    group-hover:opacity-100
+    transition-all duration-500
+    flex flex-col items-center justify-center
+    p-8 text-center
+    overflow-hidden
+  "
+>
+  {/* Dark hero-style gradient */}
+  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/10" />
+
+  {/* Text */}
+  <div className="relative z-10">
+    <h4 className="text-white text-xl md:text-2xl font-bold mb-2 drop-shadow-2xl">
+      {product.name}
+    </h4>
+
+    <p className="text-white/95 text-sm font-medium mb-2 drop-shadow-lg">
+      {product.tagline}
+    </p>
+
+    <p className="text-white/85 text-xs leading-relaxed mb-5 max-w-[220px] drop-shadow-lg">
+      {product.description}
+    </p>
+
+    <Link
+      to="/shop"
+      className="
+        inline-flex items-center gap-2
+        px-5 py-2.5
+        bg-white/95
+        text-gray-900
+        rounded-full
+        text-xs font-bold
+        uppercase tracking-wider
+        hover:bg-white
+        transition-all
+        shadow-lg
+      "
+    >
+      View Product
+      <ArrowRight className="w-4 h-4" />
+    </Link>
+  </div>
+</div>
                     <h4 className="text-white text-xl font-bold mb-2">{product.name}</h4>
                     <p className="text-green-50 text-sm leading-relaxed mb-6 line-clamp-3">Cold-pressed and delivered fresh.</p>
                     <Link to="/shop" className="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-green-900 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-green-50 transition-colors">
