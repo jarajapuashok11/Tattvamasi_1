@@ -252,66 +252,247 @@ export default function Home() {
   </div>
 </section>
 
-      {/* ── THE COLLECTION ──────────────────────────────────────────────────── */}
-      <section className="py-24 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="text-green-600 font-bold text-sm uppercase tracking-[0.3em] block mb-4">The Collection</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Pure juice, <span className="text-gray-400">nothing else.</span></h2>
-            <div className="w-20 h-1.5 bg-green-500 mx-auto rounded-full" />
-          </div>
+     {/* ── THE COLLECTION ──────────────────────────────────────────────────── */}
+<section className="py-24 bg-white overflow-hidden">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-16">
-            {products.map((product, index) => (
-              <div key={index} className="group flex flex-col items-center relative">
-                {product.badge && (
-                  <div className="absolute top-2 right-10 z-30">
-                    <span className="bg-green-600 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg group-hover:opacity-0 transition-opacity duration-200">
-                      {product.badge}
-                    </span>
-                  </div>
-                )}
-                <div className="relative aspect-square w-full max-w-[280px] rounded-full overflow-hidden bg-gray-50 shadow-sm">
-                  <img src={product.image} alt={product.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                  <div className="absolute inset-0 rounded-full overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+    {/* SECTION HEADING */}
+    <div className="text-center mb-16">
+      <span className="text-green-600 font-bold text-sm uppercase tracking-[0.3em] block mb-4">
+        The Collection
+      </span>
 
-  {/* Hero-style dark gradient */}
-  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent" />
+      <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+        Pure wellness,{" "}
+        <span className="text-gray-400">naturally.</span>
+      </h2>
 
-  {/* Hover content */}
-  <div className="relative z-10 w-full h-full flex flex-col items-center justify-end p-8 text-center">
+      <div className="w-20 h-1.5 bg-green-500 mx-auto rounded-full" />
+    </div>
 
-    <h4 className="text-white text-xl font-bold mb-2 drop-shadow-2xl">
-      {product.name}
-    </h4>
+    {/* PRODUCTS GRID */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-16">
 
-    <p className="text-white/90 text-sm font-medium leading-relaxed mb-2 drop-shadow-lg">
-      {product.tagline}
-    </p>
+      {products.map((product, index) => (
 
-    <p className="text-white/80 text-xs leading-relaxed mb-5 max-w-[220px] drop-shadow-lg">
-      {product.description}
-    </p>
+        <div
+          key={index}
+          className="group flex flex-col items-center relative"
+        >
 
-    <Link
-      to="/shop"
-      className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-gray-900 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-gray-100 transition-all shadow-xl"
-    >
-      View Product
-      <ArrowRight className="w-4 h-4" />
-    </Link>
+          {/* PRODUCT BADGE */}
+          {product.badge && (
+            <div className="absolute top-2 right-8 z-30">
+              <span
+                className="
+                  bg-green-600
+                  text-white
+                  px-3 py-1
+                  rounded-full
+                  text-[10px]
+                  font-bold
+                  uppercase
+                  tracking-wider
+                  shadow-lg
+                  transition-opacity
+                  duration-300
+                  group-hover:opacity-0
+                "
+              >
+                {product.badge}
+              </span>
+            </div>
+          )}
 
-  </div>
-</div>
-                </div>
-                <div className="mt-8 text-center group-hover:opacity-0 transition-opacity duration-200">
-                  <h3 className="text-xl font-medium text-gray-900">{product.name}</h3>
-                </div>
+          {/* CIRCULAR PRODUCT IMAGE */}
+          <div
+            className="
+              relative
+              aspect-square
+              w-full
+              max-w-[280px]
+              rounded-full
+              overflow-hidden
+              bg-gray-50
+              shadow-sm
+              group-hover:shadow-2xl
+              transition-shadow
+              duration-500
+            "
+          >
+
+            {/* PRODUCT IMAGE */}
+            <img
+              src={product.image}
+              alt={product.name}
+              className="
+                w-full
+                h-full
+                object-cover
+                transition-transform
+                duration-700
+                ease-out
+                group-hover:scale-110
+              "
+            />
+
+            {/* HERO STYLE HOVER OVERLAY */}
+            <div
+              className="
+                absolute
+                inset-0
+                rounded-full
+                overflow-hidden
+                opacity-0
+                group-hover:opacity-100
+                transition-opacity
+                duration-500
+              "
+            >
+
+              {/* DARK TRANSPARENT GRADIENT */}
+              <div
+                className="
+                  absolute
+                  inset-0
+                  bg-gradient-to-t
+                  from-black/90
+                  via-black/45
+                  to-transparent
+                "
+              />
+
+              {/* HOVER CONTENT */}
+              <div
+                className="
+                  relative
+                  z-10
+                  w-full
+                  h-full
+                  flex
+                  flex-col
+                  items-center
+                  justify-end
+                  p-7
+                  text-center
+                "
+              >
+
+                {/* PRODUCT NAME */}
+                <h4
+                  className="
+                    text-white
+                    text-xl
+                    font-bold
+                    mb-2
+                    drop-shadow-2xl
+                  "
+                >
+                  {product.name}
+                </h4>
+
+                {/* TAGLINE */}
+                <p
+                  className="
+                    text-white
+                    text-sm
+                    font-semibold
+                    leading-relaxed
+                    mb-2
+                    drop-shadow-lg
+                  "
+                >
+                  {product.tagline}
+                </p>
+
+                {/* DESCRIPTION */}
+                <p
+                  className="
+                    text-white/85
+                    text-xs
+                    leading-relaxed
+                    mb-5
+                    max-w-[220px]
+                    drop-shadow-lg
+                  "
+                >
+                  {product.description}
+                </p>
+
+                {/* VIEW PRODUCT BUTTON */}
+                <Link
+                  to="/shop"
+                  className="
+                    inline-flex
+                    items-center
+                    gap-2
+                    px-5
+                    py-2.5
+                    bg-white
+                    text-gray-900
+                    rounded-full
+                    text-xs
+                    font-bold
+                    uppercase
+                    tracking-wider
+                    shadow-xl
+                    hover:bg-gray-100
+                    hover:scale-105
+                    transition-all
+                    duration-300
+                  "
+                >
+                  View Product
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+
               </div>
-            ))}
+            </div>
           </div>
+
+          {/* PRODUCT INFORMATION BELOW IMAGE */}
+          <div
+            className="
+              mt-8
+              text-center
+              transition-all
+              duration-300
+              group-hover:opacity-0
+              group-hover:translate-y-2
+            "
+          >
+
+            {/* PRODUCT NAME */}
+            <h3
+              className="
+                text-xl
+                font-semibold
+                text-gray-900
+              "
+            >
+              {product.name}
+            </h3>
+
+            {/* TAGLINE */}
+            <p
+              className="
+                mt-2
+                text-sm
+                font-medium
+                text-green-700
+              "
+            >
+              {product.tagline}
+            </p>
+
+          </div>
+
         </div>
-      </section>
+      ))}
+
+    </div>
+  </div>
+</section>
 
       {/* ── VIDEO SECTION ───────────────────────────────────────────────────── */}
       <section className="py-24 bg-gray-950 text-white relative overflow-hidden">
