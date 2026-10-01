@@ -55,62 +55,76 @@ const stats = [
 const products = [
   {
     name: "Moringa Powder",
+    slug: "moringa-powder",
     image: moringaCollection,
     tagline: "Nature’s Green Power.",
-    description:
-      "A nutrient-rich green superfood for your everyday routine.",
+    description: "A nutrient-rich green superfood for your everyday routine.",
     badge: "Plant Power",
   },
+
   {
     name: "Amla Powder",
+    slug: "amla-powder",
     image: amlaCollection,
     tagline: "The Indian Vitamin C Classic.",
     description:
       "Naturally rich in vitamin C and antioxidants, treasured for generations.",
     badge: "Traditional",
   },
+
   {
     name: "Spirulina Powder",
+    slug: "spirulina-powder",
     image: spirulinaCollection,
     tagline: "Deep Green. Naturally Powerful.",
     description:
       "A nutrient-rich superfood packed with protein, minerals and nutrients.",
     badge: "Superfood",
   },
+
   {
     name: "Beetroot Powder",
+    slug: "beetroot-powder",
     image: beetrootCollection,
     tagline: "A Bold Root, Beautifully Pure.",
     description:
       "Vibrant beetroot powder with naturally occurring plant nutrients.",
     badge: "Natural",
   },
+
   {
     name: "Turmeric Powder",
+    slug: "turmeric-powder",
     image: turmericCollection,
     tagline: "Golden Wellness, Naturally.",
     description:
       "A warm, earthy root traditionally valued for its natural plant compounds.",
     badge: "Coming Soon",
   },
+
   {
     name: "Ashwagandha Powder",
+    slug: "ashwagandha-powder",
     image: ashwagandhaCollection,
     tagline: "Rooted in Calm.",
     description:
       "A traditional botanical valued for everyday balance and wellness.",
     badge: "Coming Soon",
   },
+
   {
     name: "Orange Shot",
+    slug: "spirulina-orange-shot",
     image: orangeShotCollection,
     tagline: "Brighten Your Daily Ritual.",
     description:
       "A refreshing citrus shot with a naturally vibrant, zesty character.",
     badge: "Fresh",
   },
+
   {
     name: "Strawberry Shot",
+    slug: "spirulina-strawberry-shot",
     image: strawberryShotCollection,
     tagline: "Berry Fresh. Naturally Bright.",
     description:
@@ -271,7 +285,7 @@ export default function Home() {
     </div>
 
     {/* Product Grid */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-10 gap-y-16">
+    <div className="grid grid-cols-4 gap-x-4 gap-y-10 [@media(min-width:1024px)_and_(max-width:1365px)]:grid-cols-8 [@media(min-width:1366px)]:grid-cols-4">
 
       {products.map((product, index) => (
         <div
@@ -321,7 +335,7 @@ export default function Home() {
 
               {/* Button */}
               <Link
-                to="/shop"
+               to={`/product/${product.slug}`}
                 className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-white text-gray-900 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-xl hover:bg-gray-100 hover:scale-105 transition-all duration-300"
               >
                 View Product
