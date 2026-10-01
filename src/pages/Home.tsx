@@ -273,61 +273,36 @@ export default function Home() {
                 )}
                 <div className="relative aspect-square w-full max-w-[280px] rounded-full overflow-hidden bg-gray-50 shadow-sm">
                   <img src={product.image} alt={product.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                  <div
-  className="
-    absolute inset-0
-    rounded-full
-    opacity-0
-    group-hover:opacity-100
-    transition-all duration-500
-    flex flex-col items-center justify-center
-    p-8 text-center
-    overflow-hidden
-  "
->
-  {/* Dark hero-style gradient */}
-  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/45 to-black/10" />
+                  <div className="absolute inset-0 rounded-full overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500">
 
-  {/* Text */}
-  <div className="relative z-10">
-    <h4 className="text-white text-xl md:text-2xl font-bold mb-2 drop-shadow-2xl">
+  {/* Hero-style dark gradient */}
+  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent" />
+
+  {/* Hover content */}
+  <div className="relative z-10 w-full h-full flex flex-col items-center justify-end p-8 text-center">
+
+    <h4 className="text-white text-xl font-bold mb-2 drop-shadow-2xl">
       {product.name}
     </h4>
 
-    <p className="text-white/95 text-sm font-medium mb-2 drop-shadow-lg">
+    <p className="text-white/90 text-sm font-medium leading-relaxed mb-2 drop-shadow-lg">
       {product.tagline}
     </p>
 
-    <p className="text-white/85 text-xs leading-relaxed mb-5 max-w-[220px] drop-shadow-lg">
+    <p className="text-white/80 text-xs leading-relaxed mb-5 max-w-[220px] drop-shadow-lg">
       {product.description}
     </p>
 
     <Link
       to="/shop"
-      className="
-        inline-flex items-center gap-2
-        px-5 py-2.5
-        bg-white/95
-        text-gray-900
-        rounded-full
-        text-xs font-bold
-        uppercase tracking-wider
-        hover:bg-white
-        transition-all
-        shadow-lg
-      "
+      className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-gray-900 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-gray-100 transition-all shadow-xl"
     >
       View Product
       <ArrowRight className="w-4 h-4" />
     </Link>
+
   </div>
 </div>
-                    <h4 className="text-white text-xl font-bold mb-2">{product.name}</h4>
-                    <p className="text-green-50 text-sm leading-relaxed mb-6 line-clamp-3">Cold-pressed and delivered fresh.</p>
-                    <Link to="/shop" className="inline-flex items-center gap-2 px-6 py-2.5 bg-white text-green-900 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-green-50 transition-colors">
-                      View Product <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </div>
                 </div>
                 <div className="mt-8 text-center group-hover:opacity-0 transition-opacity duration-200">
                   <h3 className="text-xl font-medium text-gray-900">{product.name}</h3>
