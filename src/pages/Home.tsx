@@ -19,7 +19,15 @@ import moringaFeature from "../assets/collection/moringa_feature.png";
 import amlaFeature from "../assets/collection/amla_feature.png";
 import beetrootFeature from "../assets/collection/beetroot_feature.png";
 import {
-  ArrowRight, Star, ChevronRight, Leaf, Play, Shield, Award, CheckCircle,
+ ArrowRight,
+Star,
+ShoppingCart,
+ChevronRight,
+Leaf,
+Play,
+Shield,
+Award,
+CheckCircle,
 } from "lucide-react";
 import { supabase } from "../lib/supabase";
 import { Product, Testimonial } from "../types";
@@ -186,7 +194,10 @@ const featuredProducts = [
     oldPrice: 150,
     badge: "20% OFF",
     category: "Superfood",
+    description:
+      "Premium moringa powder made from naturally dried moringa leaves — fresh, nutrient-rich and perfect for your daily wellness routine.",
   },
+
   {
     name: "Amla Powder",
     image: amlaFeature,
@@ -194,7 +205,10 @@ const featuredProducts = [
     oldPrice: 150,
     badge: "20% OFF",
     category: "Traditional",
+    description:
+      "Premium amla powder made from carefully processed Indian gooseberries — naturally fresh and ideal for your everyday wellness routine.",
   },
+
   {
     name: "Beetroot Powder",
     image: beetrootFeature,
@@ -202,9 +216,10 @@ const featuredProducts = [
     oldPrice: 150,
     badge: "20% OFF",
     category: "Natural",
+    description:
+      "Premium beetroot powder made from naturally dried beetroot — vibrant, fresh and easy to add to your daily routine.",
   },
 ];
-
 /* ─── Component ────────────────────────────────────────────────────────────── */
 
 export default function Home() {
@@ -609,8 +624,7 @@ export default function Home() {
     </div>
   </div>
 </section>
-
-     {/* ── FEATURED PRODUCTS ───────────────────────────────────────────────── */}
+{/* ── FEATURED PRODUCTS ───────────────────────────────────────────────── */}
 <section className="py-24 bg-white">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -636,7 +650,7 @@ export default function Home() {
     </div>
 
 
-    {/* Products */}
+    {/* Product Grid */}
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
       {featuredProducts.map((product) => (
@@ -646,7 +660,7 @@ export default function Home() {
           className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100"
         >
 
-          {/* ───────── PRODUCT IMAGE ───────── */}
+          {/* Product Image */}
           <div className="relative h-80 overflow-hidden bg-gray-100">
 
             <img
@@ -663,7 +677,7 @@ export default function Home() {
           </div>
 
 
-          {/* ───────── PRODUCT DETAILS ───────── */}
+          {/* Product Information */}
           <div className="p-6">
 
             {/* Category */}
@@ -703,10 +717,9 @@ export default function Home() {
             </div>
 
 
-            {/* Price + Add To Cart */}
+            {/* Price + Add */}
             <div className="flex items-center justify-between gap-4">
 
-              {/* Price */}
               <div className="flex items-center gap-3">
 
                 <span className="text-2xl font-bold text-gray-900">
@@ -720,10 +733,10 @@ export default function Home() {
               </div>
 
 
-              {/* Add To Cart */}
+              {/* Add to Cart */}
               <button
                 onClick={() => {
-                  // Add to cart logic will use your existing cart system
+                  console.log(`${product.name} added to cart`);
                 }}
                 className="flex items-center gap-2 px-5 py-3 bg-green-600 hover:bg-green-700 text-white rounded-full font-semibold text-sm transition-all duration-300 hover:shadow-lg hover:shadow-green-200"
               >
@@ -753,6 +766,7 @@ export default function Home() {
 
   </div>
 </section>
+    
 
       {/* ── CUSTOMER REVIEWS ────────────────────────────────────────────────── */}
       {testimonials.length > 0 && (
