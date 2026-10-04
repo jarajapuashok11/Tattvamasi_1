@@ -182,7 +182,7 @@ export default function Home() {
   const [featured, setFeatured] = useState<Product[]>([]);
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [activeSlide, setActiveSlide] = useState(0);
-
+  const [selectedSizes, setSelectedSizes] = useState<Record<number, number>>({});
   useEffect(() => {
     supabase.from("products").select("*").eq("featured", true).order("sort_order").then(({ data }) => {
       if (data) setFeatured(data);
