@@ -12,6 +12,8 @@ import moringaImage from "../assets/hero/01-moringa.jpg";
 import amlaImage from "../assets/hero/02-amla.jpg";
 import beetrootImage from "../assets/hero/03-beetroot.jpg";
 import greenDrinkImage from "../assets/hero/04-green-drink.jpg";
+import strawberryShot from "../assets/collection/straw_1.jpg";
+import orangeShot from "../assets/collection/orange_1.jpg";
 import guavaShotCollection from "../assets/collection/guava.png";
 import {
   ArrowRight, Star, ChevronRight, Leaf, Play, Shield, Award, CheckCircle,
@@ -55,81 +57,122 @@ const stats = [
 const products = [
   {
     name: "Moringa Powder",
-    slug: "moringa-powder",
     image: moringaCollection,
     tagline: "Nature’s Green Power.",
-    description: "A nutrient-rich green superfood for your everyday routine.",
+    description:
+      "A nutrient-rich green superfood for your everyday routine.",
     badge: "Plant Power",
+    sizes: [
+  { label: "100g", price: 120 },
+  { label: "250g", price: 250 },
+  { label: "500g", price: 450 },
+  { label: "1kg", price: 800 },
+],
   },
 
   {
     name: "Amla Powder",
-    slug: "amla-powder",
     image: amlaCollection,
     tagline: "The Indian Vitamin C Classic.",
     description:
       "Naturally rich in vitamin C and antioxidants, treasured for generations.",
     badge: "Traditional",
+    sizes: [
+  { label: "100g", price: 120 },
+  { label: "250g", price: 250 },
+  { label: "500g", price: 450 },
+  { label: "1kg", price: 800 },
+],
   },
 
   {
     name: "Spirulina Powder",
-    slug: "spirulina-powder",
     image: spirulinaCollection,
     tagline: "Deep Green. Naturally Powerful.",
     description:
       "A nutrient-rich superfood packed with protein, minerals and nutrients.",
     badge: "Superfood",
+    sizes: [
+  { label: "100g", price: 120 },
+  { label: "250g", price: 250 },
+  { label: "500g", price: 450 },
+  { label: "1kg", price: 800 },
+],
   },
 
   {
     name: "Beetroot Powder",
-    slug: "beetroot-powder",
     image: beetrootCollection,
     tagline: "A Bold Root, Beautifully Pure.",
     description:
       "Vibrant beetroot powder with naturally occurring plant nutrients.",
     badge: "Natural",
+    sizes: [
+  { label: "100g", price: 120 },
+  { label: "250g", price: 250 },
+  { label: "500g", price: 450 },
+  { label: "1kg", price: 800 },
+],
   },
 
   {
     name: "Turmeric Powder",
-    slug: "turmeric-powder",
     image: turmericCollection,
     tagline: "Golden Wellness, Naturally.",
     description:
       "A warm, earthy root traditionally valued for its natural plant compounds.",
     badge: "Coming Soon",
+    sizes: [
+  { label: "100g", price: 120 },
+  { label: "250g", price: 250 },
+  { label: "500g", price: 450 },
+  { label: "1kg", price: 800 },
+],
   },
 
   {
     name: "Ashwagandha Powder",
-    slug: "ashwagandha-powder",
     image: ashwagandhaCollection,
     tagline: "Rooted in Calm.",
     description:
       "A traditional botanical valued for everyday balance and wellness.",
     badge: "Coming Soon",
+    sizes: [
+  { label: "100g", price: 120 },
+  { label: "250g", price: 250 },
+  { label: "500g", price: 450 },
+  { label: "1kg", price: 800 },
+],
   },
 
   {
     name: "Orange Shot",
-    slug: "spirulina-orange-shot",
     image: orangeShotCollection,
     tagline: "Brighten Your Daily Ritual.",
     description:
       "A refreshing citrus shot with a naturally vibrant, zesty character.",
     badge: "Fresh",
+    sizes: [
+  { label: "100g", price: 120 },
+  { label: "250g", price: 250 },
+  { label: "500g", price: 450 },
+  { label: "1kg", price: 800 },
+],
   },
 
   {
     name: "Strawberry Shot",
-    slug: "spirulina-strawberry-shot",
     image: strawberryShotCollection,
     tagline: "Berry Fresh. Naturally Bright.",
     description:
       "A refreshing strawberry blend made for a delicious daily moment.",
     badge: "Popular",
+    sizes: [
+  { label: "100g", price: 120 },
+  { label: "250g", price: 250 },
+  { label: "500g", price: 450 },
+  { label: "1kg", price: 800 },
+],
   },
 ];
 
@@ -346,17 +389,51 @@ export default function Home() {
           </div>
 
           {/* Product Information Below Circle */}
-          <div className="mt-7 text-center transition-all duration-300 group-hover:opacity-0 group-hover:translate-y-2">
+          <div className="mt-6 text-center transition-all duration-300 group-hover:opacity-0 group-hover:translate-y-2">
 
-            <h3 className="text-xl font-semibold text-gray-900">
-              {product.name}
-            </h3>
+  {/* Product Name */}
+ <div className="mt-3 flex items-center justify-center gap-3">
 
-            <p className="mt-2 text-sm font-medium text-green-700">
-              {product.tagline}
-            </p>
+  {/* Quantity Dropdown */}
+  <select
+    value={selectedSizes[index] ?? 0}
+    onChange={(e) =>
+      setSelectedSizes((prev) => ({
+        ...prev,
+        [index]: Number(e.target.value),
+      }))
+    }
+    onClick={(e) => e.stopPropagation()}
+    className="border border-gray-300 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-green-500"
+  >
+    {product.sizes.map((size, sizeIndex) => (
+      <option key={sizeIndex} value={sizeIndex}>
+        {size.label}
+      </option>
+    ))}
+  </select>
 
-          </div>
+  {/* Dynamic Price */}
+  <span className="text-xl font-bold text-gray-900">
+    ₹{product.sizes[selectedSizes[index] ?? 0].price}
+  </span>
+
+</div>
+
+  {/* Price + Quantity */}
+  <div className="mt-2 flex items-center justify-center gap-3">
+
+    <span className="text-xl font-bold text-gray-900">
+      {product.price}
+    </span>
+
+    <span className="text-sm font-medium text-gray-500">
+      {product.quantity}
+    </span>
+
+  </div>
+
+</div>
 
         </div>
       ))}
@@ -423,7 +500,7 @@ export default function Home() {
           name: "Orange Shot",
           slug: "spirulina-orange-shot",
           desc: "Citrus freshness meets spirulina superfood for a bright and refreshing daily wellness boost.",
-          image: orangeShotCollection,
+          image: orangeShot,
           color: "from-orange-500 to-amber-400",
           badge: "Most Popular",
         },
@@ -431,7 +508,7 @@ export default function Home() {
           name: "Strawberry Shot",
           slug: "spirulina-strawberry-shot",
           desc: "Sweet and refreshing strawberry flavour blended with nutrient-rich spirulina for your daily ritual.",
-          image: strawberryShotCollection,
+          image: strawberryShot,
           color: "from-red-500 to-rose-400",
           badge: "Fan Favourite",
         },
