@@ -15,6 +15,9 @@ import greenDrinkImage from "../assets/hero/04-green-drink.jpg";
 import strawberryShotNew from "../assets/collection/straw_1.png";
 import orangeShotNew from "../assets/collection/orange_1.png";
 import guavaShotCollection from "../assets/collection/guava.png";
+import moringaFeature from "../assets/collection/moringa_feature.png";
+import amlaFeature from "../assets/collection/amla_feature.png";
+import beetrootFeature from "../assets/collection/beetroot_feature.png";
 import {
   ArrowRight, Star, ChevronRight, Leaf, Play, Shield, Award, CheckCircle,
 } from "lucide-react";
@@ -173,6 +176,32 @@ const products = [
   { label: "500g", price: 450 },
   { label: "1kg", price: 800 },
 ],
+  },
+];
+const featuredProducts = [
+  {
+    name: "Moringa Powder",
+    image: moringaFeature,
+    price: 120,
+    oldPrice: 150,
+    badge: "20% OFF",
+    category: "Superfood",
+  },
+  {
+    name: "Amla Powder",
+    image: amlaFeature,
+    price: 120,
+    oldPrice: 150,
+    badge: "20% OFF",
+    category: "Traditional",
+  },
+  {
+    name: "Beetroot Powder",
+    image: beetrootFeature,
+    price: 120,
+    oldPrice: 150,
+    badge: "20% OFF",
+    category: "Natural",
   },
 ];
 
@@ -350,13 +379,13 @@ export default function Home() {
             <div className="absolute inset-0 rounded-full bg-black/0 group-hover:bg-black/60 transition-all duration-500" />
 
             {/* Badge */}
-            {product.badge && (
-              <div className="absolute top-5 right-5 z-30">
-                <span className="inline-block whitespace-nowrap bg-green-600 text-white px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg">
-                  {product.badge}
-                </span>
-              </div>
-            )}
+           {product.badge && (
+            <div className="absolute top-8 right-10 z-40">
+              <span className="inline-flex items-center justify-center whitespace-nowrap bg-green-600 text-white px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg">
+                {product.badge}
+              </span>
+            </div>
+          )}
 
             {/* Hover Information */}
             <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -593,16 +622,58 @@ export default function Home() {
               View All <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+  {featuredProducts.map((product) => (
+    <div
+      key={product.name}
+      className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500"
+    >
+      {/* Product Image */}
+      <div className="relative h-80 overflow-hidden bg-gray-100">
+        <img
+          src={product.image}
+          alt={product.name}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+        />
 
-          {featured.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {featured.map((product) => <ProductCard key={product.id} product={product} />)}
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[1, 2, 3].map((i) => <div key={i} className="animate-pulse bg-gray-100 rounded-2xl h-80" />)}
-            </div>
-          )}
+        {/* Badge */}
+        <span className="absolute top-4 left-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+          {product.badge}
+        </span>
+      </div>
+
+      {/* Product Information */}
+      <div className="p-6">
+        <p className="text-sm text-green-600 font-medium mb-2">
+          {product.category}
+        </p>
+
+        <h3 className="text-xl font-bold text-gray-900">
+          {product.name}
+        </h3>
+
+        <div className="flex items-center gap-3 mt-3">
+          <span className="text-xl font-bold text-gray-900">
+            ₹{product.price}
+          </span>
+
+          <span className="text-sm text-gray-400 line-through">
+            ₹{product.oldPrice}
+          </span>
+        </div>
+
+        <Link
+          to="/shop"
+          className="mt-5 inline-flex items-center gap-2 text-green-600 font-semibold hover:text-green-700"
+        >
+          View Product
+          <ArrowRight className="w-4 h-4" />
+        </Link>
+      </div>
+    </div>
+  ))}
+</div>
+          
         </div>
       </section>
 
