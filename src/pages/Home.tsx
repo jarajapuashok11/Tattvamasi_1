@@ -12,8 +12,8 @@ import moringaImage from "../assets/hero/01-moringa.jpg";
 import amlaImage from "../assets/hero/02-amla.jpg";
 import beetrootImage from "../assets/hero/03-beetroot.jpg";
 import greenDrinkImage from "../assets/hero/04-green-drink.jpg";
-import strawberryShotCollection from "../assets/collection/straw_1.png";
-import orangeShotCollection from "../assets/collection/orange_1.png";
+import strawberryShotNew from "../assets/collection/straw_1.png";
+import orangeShotNew from "../assets/collection/orange_1.png";
 import guavaShotCollection from "../assets/collection/guava.png";
 import {
   ArrowRight, Star, ChevronRight, Leaf, Play, Shield, Award, CheckCircle,
@@ -500,7 +500,7 @@ export default function Home() {
           name: "Orange Shot",
           slug: "spirulina-orange-shot",
           desc: "Citrus freshness meets spirulina superfood for a bright and refreshing daily wellness boost.",
-          image: orangeShotCollection,
+          image: orangeShotNew,
           color: "from-orange-500 to-amber-400",
           badge: "Most Popular",
         },
@@ -508,7 +508,7 @@ export default function Home() {
           name: "Strawberry Shot",
           slug: "spirulina-strawberry-shot",
           desc: "Sweet and refreshing strawberry flavour blended with nutrient-rich spirulina for your daily ritual.",
-          image: strawberryShotCollection,
+          image: strawberryShotNew,
           color: "from-red-500 to-rose-400",
           badge: "Fan Favourite",
         },
