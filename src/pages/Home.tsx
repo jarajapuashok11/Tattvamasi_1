@@ -12,8 +12,8 @@ import moringaImage from "../assets/hero/01-moringa.jpg";
 import amlaImage from "../assets/hero/02-amla.jpg";
 import beetrootImage from "../assets/hero/03-beetroot.jpg";
 import greenDrinkImage from "../assets/hero/04-green-drink.jpg";
-import strawberryShot from "../assets/collection/straw_1.png";
-import orangeShot from "../assets/collection/orange_1.png";
+import strawberryShotCollection from "../assets/collection/straw_1.png";
+import orangeShotCollection from "../assets/collection/orange_1.png";
 import guavaShotCollection from "../assets/collection/guava.png";
 import {
   ArrowRight, Star, ChevronRight, Leaf, Play, Shield, Award, CheckCircle,
