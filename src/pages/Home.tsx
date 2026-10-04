@@ -327,8 +327,8 @@ export default function Home() {
       <div className="w-20 h-1.5 bg-green-500 mx-auto rounded-full" />
     </div>
 
-    {/* Product Grid */}
-    <div className="grid grid-cols-4 gap-x-4 gap-y-10 [@media(min-width:1024px)_and_(max-width:1365px)]:grid-cols-8 [@media(min-width:1366px)]:grid-cols-4">
+    {/* Products */}
+    <div className="grid grid-cols-4 gap-x-6 gap-y-12">
 
       {products.map((product, index) => (
         <div
@@ -336,62 +336,45 @@ export default function Home() {
           className="group flex flex-col items-center relative"
         >
 
-          {/* Badge */}
+          {/* Circular Image */}
           <div className="relative aspect-square w-full max-w-[280px] rounded-full overflow-hidden bg-gray-100 shadow-lg group-hover:shadow-2xl transition-shadow duration-500">
 
-  {/* Badge */}
-  {product.badge && (
-    <div className="absolute top-5 right-5 z-30">
-      <span className="inline-block whitespace-nowrap bg-green-600 text-white px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg">
-        {product.badge}
-      </span>
-    </div>
-  )}
-
-  {/* Background Image */}
-  <img
-    src={product.image}
-    alt={product.name}
-    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-  />
-
-  {/* Hover overlay */}
-  ...
-
-          {/* Circular Product Image */}
-          <div className="relative aspect-square w-full max-w-[280px] rounded-full overflow-hidden bg-gray-100 shadow-lg group-hover:shadow-2xl transition-shadow duration-500">
-
-            {/* Background Image */}
+            {/* Product Image */}
             <img
               src={product.image}
               alt={product.name}
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
             />
 
-            {/* Transparent Hover Overlay */}
+            {/* Dark Hover Overlay */}
             <div className="absolute inset-0 rounded-full bg-black/0 group-hover:bg-black/60 transition-all duration-500" />
 
-            {/* Hover Content */}
-            <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+            {/* Badge */}
+            {product.badge && (
+              <div className="absolute top-5 right-5 z-30">
+                <span className="inline-block whitespace-nowrap bg-green-600 text-white px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg">
+                  {product.badge}
+                </span>
+              </div>
+            )}
 
-              {/* Product Name */}
-              <h3 className="text-white text-xl md:text-2xl font-bold mb-2 drop-shadow-lg">
+            {/* Hover Information */}
+            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center text-center px-8 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+
+              <h3 className="text-white text-xl font-bold mb-2 drop-shadow-lg">
                 {product.name}
               </h3>
 
-              {/* Tagline */}
               <p className="text-white text-sm font-semibold leading-relaxed mb-2 drop-shadow-md">
                 {product.tagline}
               </p>
 
-              {/* Description */}
               <p className="text-white/90 text-xs leading-relaxed max-w-[210px] mb-5 drop-shadow-md">
                 {product.description}
               </p>
 
-              {/* Button */}
               <Link
-               to={`/product/${product.slug}`}
+                to={`/product/${product.slug}`}
                 className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-white text-gray-900 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-xl hover:bg-gray-100 hover:scale-105 transition-all duration-300"
               >
                 View Product
@@ -401,44 +384,41 @@ export default function Home() {
             </div>
           </div>
 
-         {/* Product Information Below Circle */}
-<div className="mt-6 text-center">
+          {/* Product Information */}
+          <div className="mt-6 text-center">
 
-  {/* Product Name */}
-  <h3 className="text-xl font-semibold text-gray-900">
-    {product.name}
-  </h3>
+            {/* Product Name */}
+            <h3 className="text-xl font-semibold text-gray-900">
+              {product.name}
+            </h3>
 
-  {/* Quantity + Dynamic Price */}
-  <div className="mt-3 flex items-center justify-center gap-3">
+            {/* Quantity + Price */}
+            <div className="mt-3 flex items-center justify-center gap-3">
 
-    {/* Quantity Dropdown */}
-    <select
-      value={selectedSizes[index] ?? 0}
-      onChange={(e) =>
-        setSelectedSizes((prev) => ({
-          ...prev,
-          [index]: Number(e.target.value),
-        }))
-      }
-      onClick={(e) => e.stopPropagation()}
-      className="border border-gray-300 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 bg-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-green-500"
-    >
-      {product.sizes.map((size, sizeIndex) => (
-        <option key={sizeIndex} value={sizeIndex}>
-          {size.label}
-        </option>
-      ))}
-    </select>
+              <select
+                value={selectedSizes[index] ?? 0}
+                onChange={(e) =>
+                  setSelectedSizes((prev) => ({
+                    ...prev,
+                    [index]: Number(e.target.value),
+                  }))
+                }
+                onClick={(e) => e.stopPropagation()}
+                className="border border-gray-300 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 bg-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-green-500"
+              >
+                {product.sizes.map((size, sizeIndex) => (
+                  <option key={sizeIndex} value={sizeIndex}>
+                    {size.label}
+                  </option>
+                ))}
+              </select>
 
-    {/* Dynamic Price */}
-    <span className="text-xl font-bold text-gray-900">
-      ₹{product.sizes[selectedSizes[index] ?? 0].price}
-    </span>
+              <span className="text-xl font-bold text-gray-900">
+                ₹{product.sizes[selectedSizes[index] ?? 0].price}
+              </span>
 
-  </div>
-
-</div>
+            </div>
+          </div>
 
         </div>
       ))}
@@ -446,6 +426,7 @@ export default function Home() {
     </div>
   </div>
 </section>
+
      
 
       {/* ── VIDEO SECTION ───────────────────────────────────────────────────── */}
