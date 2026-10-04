@@ -610,72 +610,149 @@ export default function Home() {
   </div>
 </section>
 
-      {/* ── FEATURED PRODUCTS ───────────────────────────────────────────────── */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
-            <div>
-              <span className="text-green-600 font-semibold text-sm uppercase tracking-wider">Our Products</span>
-              <h2 className="text-4xl font-bold text-gray-900 mt-3">Featured Products</h2>
-            </div>
-            <Link to="/shop" className="inline-flex items-center gap-2 text-green-600 font-semibold hover:text-green-700 transition-colors">
-              View All <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-  {featuredProducts.map((product) => (
-    <div
-      key={product.name}
-      className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500"
-    >
-      {/* Product Image */}
-      <div className="relative h-80 overflow-hidden bg-gray-100">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-        />
+     {/* ── FEATURED PRODUCTS ───────────────────────────────────────────────── */}
+<section className="py-24 bg-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* Badge */}
-        <span className="absolute top-4 left-4 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-          {product.badge}
+    {/* Heading */}
+    <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+      <div>
+        <span className="text-green-600 font-semibold text-sm uppercase tracking-wider">
+          Our Products
         </span>
+
+        <h2 className="text-4xl font-bold text-gray-900 mt-3">
+          Featured Products
+        </h2>
       </div>
 
-      {/* Product Information */}
-      <div className="p-6">
-        <p className="text-sm text-green-600 font-medium mb-2">
-          {product.category}
-        </p>
-
-        <h3 className="text-xl font-bold text-gray-900">
-          {product.name}
-        </h3>
-
-        <div className="flex items-center gap-3 mt-3">
-          <span className="text-xl font-bold text-gray-900">
-            ₹{product.price}
-          </span>
-
-          <span className="text-sm text-gray-400 line-through">
-            ₹{product.oldPrice}
-          </span>
-        </div>
-
-        <Link
-          to="/shop"
-          className="mt-5 inline-flex items-center gap-2 text-green-600 font-semibold hover:text-green-700"
-        >
-          View Product
-          <ArrowRight className="w-4 h-4" />
-        </Link>
-      </div>
+      <Link
+        to="/shop"
+        className="inline-flex items-center gap-2 text-green-600 font-semibold hover:text-green-700 transition-colors"
+      >
+        View All
+        <ArrowRight className="w-4 h-4" />
+      </Link>
     </div>
-  ))}
-</div>
-          
+
+
+    {/* Products */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      {featuredProducts.map((product) => (
+
+        <div
+          key={product.name}
+          className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100"
+        >
+
+          {/* ───────── PRODUCT IMAGE ───────── */}
+          <div className="relative h-80 overflow-hidden bg-gray-100">
+
+            <img
+              src={product.image}
+              alt={product.name}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+
+            {/* Discount Badge */}
+            <span className="absolute top-5 left-5 bg-green-600 text-white px-4 py-2 rounded-full text-xs font-bold shadow-md">
+              {product.badge}
+            </span>
+
+          </div>
+
+
+          {/* ───────── PRODUCT DETAILS ───────── */}
+          <div className="p-6">
+
+            {/* Category */}
+            <p className="text-sm text-green-600 font-medium mb-2">
+              {product.category}
+            </p>
+
+
+            {/* Product Name */}
+            <h3 className="text-xl font-bold text-gray-900 mb-3">
+              {product.name}
+            </h3>
+
+
+            {/* Description */}
+            <p className="text-gray-500 text-sm leading-relaxed mb-5 line-clamp-2">
+              {product.description}
+            </p>
+
+
+            {/* Rating */}
+            <div className="flex items-center gap-2 mb-5">
+
+              <div className="flex items-center gap-1">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <Star
+                    key={star}
+                    className="w-4 h-4 fill-amber-400 text-amber-400"
+                  />
+                ))}
+              </div>
+
+              <span className="text-sm text-gray-500">
+                (4.9)
+              </span>
+
+            </div>
+
+
+            {/* Price + Add To Cart */}
+            <div className="flex items-center justify-between gap-4">
+
+              {/* Price */}
+              <div className="flex items-center gap-3">
+
+                <span className="text-2xl font-bold text-gray-900">
+                  ₹{product.price}
+                </span>
+
+                <span className="text-sm text-gray-400 line-through">
+                  ₹{product.oldPrice}
+                </span>
+
+              </div>
+
+
+              {/* Add To Cart */}
+              <button
+                onClick={() => {
+                  // Add to cart logic will use your existing cart system
+                }}
+                className="flex items-center gap-2 px-5 py-3 bg-green-600 hover:bg-green-700 text-white rounded-full font-semibold text-sm transition-all duration-300 hover:shadow-lg hover:shadow-green-200"
+              >
+                <ShoppingCart className="w-4 h-4" />
+                Add
+              </button>
+
+            </div>
+
+
+            {/* View Product */}
+            <Link
+              to="/shop"
+              className="mt-5 inline-flex items-center gap-2 text-green-600 font-semibold hover:text-green-700 transition-colors"
+            >
+              View Product
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+
+          </div>
+
         </div>
-      </section>
+
+      ))}
+
+    </div>
+
+  </div>
+</section>
 
       {/* ── CUSTOMER REVIEWS ────────────────────────────────────────────────── */}
       {testimonials.length > 0 && (
