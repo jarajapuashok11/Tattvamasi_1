@@ -337,13 +337,26 @@ export default function Home() {
         >
 
           {/* Badge */}
-          {product.badge && (
-            <div className="absolute top-2 right-6 z-30">
-              <span className="bg-green-600 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg">
-                {product.badge}
-              </span>
-            </div>
-          )}
+          <div className="relative aspect-square w-full max-w-[280px] rounded-full overflow-hidden bg-gray-100 shadow-lg group-hover:shadow-2xl transition-shadow duration-500">
+
+  {/* Badge */}
+  {product.badge && (
+    <div className="absolute top-5 right-5 z-30">
+      <span className="inline-block whitespace-nowrap bg-green-600 text-white px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg">
+        {product.badge}
+      </span>
+    </div>
+  )}
+
+  {/* Background Image */}
+  <img
+    src={product.image}
+    alt={product.name}
+    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+  />
+
+  {/* Hover overlay */}
+  ...
 
           {/* Circular Product Image */}
           <div className="relative aspect-square w-full max-w-[280px] rounded-full overflow-hidden bg-gray-100 shadow-lg group-hover:shadow-2xl transition-shadow duration-500">
@@ -388,47 +401,39 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Product Information Below Circle */}
-          <div className="mt-6 text-center transition-all duration-300 group-hover:opacity-0 group-hover:translate-y-2">
+         {/* Product Information Below Circle */}
+<div className="mt-6 text-center">
 
   {/* Product Name */}
- <div className="mt-3 flex items-center justify-center gap-3">
+  <h3 className="text-xl font-semibold text-gray-900">
+    {product.name}
+  </h3>
 
-  {/* Quantity Dropdown */}
-  <select
-    value={selectedSizes[index] ?? 0}
-    onChange={(e) =>
-      setSelectedSizes((prev) => ({
-        ...prev,
-        [index]: Number(e.target.value),
-      }))
-    }
-    onClick={(e) => e.stopPropagation()}
-    className="border border-gray-300 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 bg-white focus:outline-none focus:ring-2 focus:ring-green-500"
-  >
-    {product.sizes.map((size, sizeIndex) => (
-      <option key={sizeIndex} value={sizeIndex}>
-        {size.label}
-      </option>
-    ))}
-  </select>
+  {/* Quantity + Dynamic Price */}
+  <div className="mt-3 flex items-center justify-center gap-3">
 
-  {/* Dynamic Price */}
-  <span className="text-xl font-bold text-gray-900">
-    ₹{product.sizes[selectedSizes[index] ?? 0].price}
-  </span>
+    {/* Quantity Dropdown */}
+    <select
+      value={selectedSizes[index] ?? 0}
+      onChange={(e) =>
+        setSelectedSizes((prev) => ({
+          ...prev,
+          [index]: Number(e.target.value),
+        }))
+      }
+      onClick={(e) => e.stopPropagation()}
+      className="border border-gray-300 rounded-lg px-3 py-2 text-sm font-medium text-gray-700 bg-white cursor-pointer focus:outline-none focus:ring-2 focus:ring-green-500"
+    >
+      {product.sizes.map((size, sizeIndex) => (
+        <option key={sizeIndex} value={sizeIndex}>
+          {size.label}
+        </option>
+      ))}
+    </select>
 
-</div>
-
-  {/* Price + Quantity */}
-  <div className="mt-2 flex items-center justify-center gap-3">
-
+    {/* Dynamic Price */}
     <span className="text-xl font-bold text-gray-900">
-      {product.price}
-    </span>
-
-    <span className="text-sm font-medium text-gray-500">
-      {product.quantity}
+      ₹{product.sizes[selectedSizes[index] ?? 0].price}
     </span>
 
   </div>
