@@ -124,32 +124,6 @@ export default function About() {
               <span className="text-green-700 font-semibold"> Transparency over marketing</span>.
               <span className="text-green-700 font-semibold"> Impact over margins</span>.
             </p>
-            {/* About Tattvamasi Slideshow */}
-<div className="mt-12">
-  <div className="relative max-w-5xl mx-auto overflow-hidden rounded-3xl shadow-xl">
-    <img
-      src={aboutImages[currentSlide]}
-      alt={`About Tattvamasi ${currentSlide + 1}`}
-      className="w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover transition-opacity duration-700"
-    />
-  </div>
-
-  {/* Slide dots */}
-  <div className="flex justify-center items-center gap-3 mt-6">
-    {aboutImages.map((_, index) => (
-      <button
-        key={index}
-        onClick={() => setCurrentSlide(index)}
-        aria-label={`Go to slide ${index + 1}`}
-        className={`transition-all duration-300 rounded-full ${
-          currentSlide === index
-            ? 'w-8 h-3 bg-green-600'
-            : 'w-3 h-3 bg-gray-300 hover:bg-green-400'
-        }`}
-      />
-    ))}
-  </div>
-</div>
 
             <div className="flex flex-wrap gap-8 justify-center pt-8 mt-8 border-t border-gray-200">
               {[
