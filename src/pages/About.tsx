@@ -530,19 +530,14 @@ useEffect(() => {
     {/* Animated line */}
     <div className="absolute bottom-0 left-8 right-8 h-1 overflow-hidden rounded-full">
 
-      <div
-        className={`
-          h-full bg-green-600 rounded-full
-          transition-all
-          ${
-            activeValue === i
-              ? "animate-core-line"
-              : "w-0"
-          }
-        `}
-      />
-
-    </div>
+      <div className="absolute bottom-0 left-8 right-8 h-1 overflow-hidden rounded-full">
+  <div
+    className={`
+      h-full bg-green-600 rounded-full transition-all
+      ${activeValue === i ? "animate-core-line" : "w-0"}
+    `}
+  />
+</div>
 
   </div>
 ))}
@@ -560,23 +555,24 @@ useEffect(() => {
             ))}
           </div>
         </div>
-      </section>
-{/* Core Values Animation */}
-<style>{`
-  @keyframes coreValueLine {
-    0% {
-      width: 0%;
-    }
+          </section>
 
-    100% {
-      width: 100%;
-    }
-  }
+      {/* Core Values Animation */}
+      <style>{`
+        @keyframes coreValueLine {
+          0% {
+            width: 0%;
+          }
 
-  .animate-core-line {
-    animation: coreValueLine 3s linear forwards;
-  }
-`}</style>
+          100% {
+            width: 100%;
+          }
+        }
+
+        .animate-core-line {
+          animation: coreValueLine 3s linear forwards;
+        }
+      `}</style>
     </div>
   );
 }
