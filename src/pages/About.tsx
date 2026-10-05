@@ -56,7 +56,16 @@ const manufacturingSteps = [
 
 export default function About() {
   const [missionSlide, setMissionSlide] = useState(0);
+  const [activeValue, setActiveValue] = useState(0);
+useEffect(() => {
 
+    const interval = setInterval(() => {
+      setMissionSlide((prev) => (prev + 1) % 2);
+    }, 10000);
+
+    return () => clearInterval(interval);
+
+  }, []);
 useEffect(() => {
   const interval = setInterval(() => {
     setMissionSlide((prev) => (prev + 1) % 2);
@@ -457,7 +466,86 @@ useEffect(() => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {coreValues.map((v, i) => (
-              <div key={i} className="group bg-gradient-to-br from-green-50/80 to-emerald-50/80 rounded-3xl p-8 border border-green-100/50 hover:border-green-300 hover:shadow-xl transition-all duration-500 cursor-default">
+  <div
+    key={i}
+    className={`
+      relative group rounded-3xl p-8 cursor-default
+      border transition-all duration-700
+      ${
+        activeValue === i
+          ? "bg-white border-green-400 shadow-2xl -translate-y-3"
+          : "bg-gradient-to-br from-green-50/80 to-emerald-50/80 border-green-100/50"
+      }
+    `}
+  >
+
+    {/* Icon */}
+    <div
+      className={`
+        w-12 h-12 rounded-xl flex items-center justify-center mb-6
+        transition-all duration-700
+        ${
+          activeValue === i
+            ? "bg-green-600 scale-110 shadow-lg"
+            : "bg-green-100"
+        }
+      `}
+    >
+      <v.icon
+        className={`
+          w-6 h-6 transition-all duration-700
+          ${
+            activeValue === i
+              ? "text-white"
+              : "text-green-600"
+          }
+        `}
+      />
+    </div>
+
+
+    {/* Title */}
+    <h3 className="text-xl font-bold text-gray-900 mb-4 leading-snug">
+
+      <span className="text-green-700">
+        {v.title.split(' ')[0]}
+      </span>
+
+      {v.title.split(' ').length > 1 && (
+        <span>
+          {" "}
+          {v.title.split(' ').slice(1).join(' ')}
+        </span>
+      )}
+
+    </h3>
+
+
+    {/* Description */}
+    <p className="text-gray-600 text-sm leading-[1.7]">
+      {v.desc}
+    </p>
+
+
+    {/* Animated line */}
+    <div className="absolute bottom-0 left-8 right-8 h-1 overflow-hidden rounded-full">
+
+      <div
+        className={`
+          h-full bg-green-600 rounded-full
+          transition-all
+          ${
+            activeValue === i
+              ? "animate-core-line"
+              : "w-0"
+          }
+        `}
+      />
+
+    </div>
+
+  </div>
+))}
                 <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-green-200 transition-colors">
                   <v.icon className="w-6 h-6 text-green-600" />
                 </div>
@@ -473,7 +561,22 @@ useEffect(() => {
           </div>
         </div>
       </section>
+{/* Core Values Animation */}
+<style>{`
+  @keyframes coreValueLine {
+    0% {
+      width: 0%;
+    }
 
+    100% {
+      width: 100%;
+    }
+  }
+
+  .animate-core-line {
+    animation: coreValueLine 3s linear forwards;
+  }
+`}</style>
     </div>
   );
 }
