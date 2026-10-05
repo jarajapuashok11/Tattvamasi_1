@@ -453,109 +453,105 @@ useEffect(() => {
 
   </div>
 </section>
-      
-
       {/* ── CORE VALUES ────────────────────────────────────────────────────── */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="text-green-600 font-bold text-xs uppercase tracking-[0.3em] block mb-4">Core Values</span>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">What We Stand For</h2>
-            <p className="text-gray-500 max-w-2xl mx-auto">Four principles that guide every decision — from sourcing to shipping.</p>
-          </div>
+<section className="py-24 bg-gray-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {coreValues.map((v, i) => (
-  <div
-    key={i}
-    className={`
-      relative group rounded-3xl p-8 cursor-default
-      border transition-all duration-700
-      ${
-        activeValue === i
-          ? "bg-white border-green-400 shadow-2xl -translate-y-3"
-          : "bg-gradient-to-br from-green-50/80 to-emerald-50/80 border-green-100/50"
-      }
-    `}
-  >
-
-    {/* Icon */}
-    <div
-      className={`
-        w-12 h-12 rounded-xl flex items-center justify-center mb-6
-        transition-all duration-700
-        ${
-          activeValue === i
-            ? "bg-green-600 scale-110 shadow-lg"
-            : "bg-green-100"
-        }
-      `}
-    >
-      <v.icon
-        className={`
-          w-6 h-6 transition-all duration-700
-          ${
-            activeValue === i
-              ? "text-white"
-              : "text-green-600"
-          }
-        `}
-      />
-    </div>
-
-
-    {/* Title */}
-    <h3 className="text-xl font-bold text-gray-900 mb-4 leading-snug">
-
-      <span className="text-green-700">
-        {v.title.split(' ')[0]}
+    <div className="text-center mb-16">
+      <span className="text-green-600 font-bold text-xs uppercase tracking-[0.3em] block mb-4">
+        Core Values
       </span>
 
-      {v.title.split(' ').length > 1 && (
-        <span>
-          {" "}
-          {v.title.split(' ').slice(1).join(' ')}
-        </span>
-      )}
+      <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+        What We Stand For
+      </h2>
 
-    </h3>
+      <p className="text-gray-500 max-w-2xl mx-auto">
+        Four principles that guide every decision — from sourcing to shipping.
+      </p>
+    </div>
 
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-    {/* Description */}
-    <p className="text-gray-600 text-sm leading-[1.7]">
-      {v.desc}
-    </p>
+      {coreValues.map((v, i) => (
+        <div
+          key={i}
+          className={`
+            relative group rounded-3xl p-8 cursor-default
+            border transition-all duration-700
+            ${
+              activeValue === i
+                ? "bg-white border-green-400 shadow-2xl -translate-y-3"
+                : "bg-gradient-to-br from-green-50/80 to-emerald-50/80 border-green-100/50"
+            }
+          `}
+        >
 
-
-    {/* Animated line */}
-    <div className="absolute bottom-0 left-8 right-8 h-1 overflow-hidden rounded-full">
-
-      <div className="absolute bottom-0 left-8 right-8 h-1 overflow-hidden rounded-full">
-  <div
-    className={`
-      h-full bg-green-600 rounded-full transition-all
-      ${activeValue === i ? "animate-core-line" : "w-0"}
-    `}
-  />
-</div>
-
-  </div>
-))}
-                <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-6 group-hover:bg-green-200 transition-colors">
-                  <v.icon className="w-6 h-6 text-green-600" />
-                </div>
-
-                <h3 className="text-xl font-bold text-gray-900 mb-4 leading-snug">
-                  <span className="text-green-700">{v.title.split(' ')[0]}</span>
-                  {v.title.split(' ').length > 1 && <span> {v.title.split(' ').slice(1).join(' ')}</span>}
-                </h3>
-
-                <p className="text-gray-600 text-sm leading-[1.7]">{v.desc}</p>
-              </div>
-            ))}
+          {/* Icon */}
+          <div
+            className={`
+              w-12 h-12 rounded-xl flex items-center justify-center mb-6
+              transition-all duration-700
+              ${
+                activeValue === i
+                  ? "bg-green-600 scale-110 shadow-lg"
+                  : "bg-green-100"
+              }
+            `}
+          >
+            <v.icon
+              className={`
+                w-6 h-6 transition-all duration-700
+                ${
+                  activeValue === i
+                    ? "text-white"
+                    : "text-green-600"
+                }
+              `}
+            />
           </div>
+
+          {/* Title */}
+          <h3 className="text-xl font-bold text-gray-900 mb-4 leading-snug">
+            <span className="text-green-700">
+              {v.title.split(" ")[0]}
+            </span>
+
+            {v.title.split(" ").length > 1 && (
+              <span>
+                {" "}
+                {v.title.split(" ").slice(1).join(" ")}
+              </span>
+            )}
+          </h3>
+
+          {/* Description */}
+          <p className="text-gray-600 text-sm leading-[1.7]">
+            {v.desc}
+          </p>
+
+          {/* Animated line */}
+          <div className="absolute bottom-0 left-8 right-8 h-1 overflow-hidden rounded-full">
+            <div
+              className={`
+                h-full bg-green-600 rounded-full
+                ${
+                  activeValue === i
+                    ? "animate-core-line"
+                    : "w-0"
+                }
+              `}
+            />
+          </div>
+
         </div>
-          </section>
+      ))}
+
+    </div>
+  </div>
+</section>
+
+      
 
       {/* Core Values Animation */}
       <style>{`
