@@ -1,3 +1,5 @@
+import missionImage from '../assets/about/mission.png';
+import visionImage from '../assets/about/vision.png';
 import { useEffect, useState } from 'react';
 import { Leaf, Heart, Zap, Users, CheckCircle, FlaskConical, Truck, Sprout } from 'lucide-react';
 
@@ -53,6 +55,15 @@ const manufacturingSteps = [
 ];
 
 export default function About() {
+  const [missionSlide, setMissionSlide] = useState(0);
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setMissionSlide((prev) => (prev + 1) % 2);
+  }, 4000);
+
+  return () => clearInterval(interval);
+}, []);
   return (
     <div className="min-h-screen bg-white pt-16 lg:pt-20">
 
@@ -141,46 +152,112 @@ export default function About() {
         </div>
       </section>
 
-      {/* ── MISSION & VISION ───────────────────────────────────────────────── */}
-      <section className="py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <span className="text-green-600 font-bold text-xs uppercase tracking-[0.3em] block mb-4">Purpose</span>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900">Mission & Vision</h2>
-          </div>
+      {/* ── MISSION & VISION ───────────────────────────────── */}
+<section className="py-24 bg-gray-50">
+  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div className="bg-white rounded-3xl p-10 border border-gray-100 shadow-sm hover:shadow-xl transition-shadow duration-500">
-              <div className="flex items-center gap-3 mb-6">
-                <Heart className="w-8 h-8 text-green-600" />
-                <h3 className="text-2xl font-bold text-gray-900">Our Mission</h3>
-              </div>
-              <p className="text-gray-600 leading-[1.8] text-base">
-                To empower individuals with
-                <span className="text-green-700 font-semibold"> premium organic superfoods</span>
-                that support natural immunity, detoxification, and sustainable energy — making
-                <span className="text-green-700 font-semibold"> preventive wellness genuinely accessible</span>
-                to every household in India and beyond.
-              </p>
-            </div>
+    <div className="text-center mb-12">
+      <span className="text-green-600 font-bold text-xs uppercase tracking-[0.3em] block mb-4">
+        Purpose
+      </span>
 
-            <div className="bg-white rounded-3xl p-10 border border-gray-100 shadow-sm hover:shadow-xl transition-shadow duration-500">
-              <div className="flex items-center gap-3 mb-6">
-                <Leaf className="w-8 h-8 text-green-600" />
-                <h3 className="text-2xl font-bold text-gray-900">Our Vision</h3>
-              </div>
-              <p className="text-gray-600 leading-[1.8] text-base">
-                To become the world's most
-                <span className="text-green-700 font-semibold"> trusted organic wellness brand</span>
-                — one where quality is
-                <span className="text-green-700 font-semibold"> non-negotiable</span>, transparency is
-                <span className="text-green-700 font-semibold"> the standard</span>, and genuine health
-                <span className="text-green-700 font-semibold"> transformation is the norm</span>.
+      <h2 className="text-4xl lg:text-5xl font-bold text-gray-900">
+        Mission & Vision
+      </h2>
+    </div>
+
+    {/* Banner Slider */}
+    <div className="relative overflow-hidden rounded-3xl shadow-lg">
+
+      {/* IMAGE */}
+      <img
+        src={missionSlide === 0 ? missionImage : visionImage}
+        alt={missionSlide === 0 ? "Our Mission" : "Our Vision"}
+        className="w-full h-[450px] md:h-[500px] object-cover"
+      />
+
+      {/* Soft overlay for text */}
+      <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/75 to-transparent" />
+
+      {/* TEXT */}
+      <div className="absolute inset-0 flex items-center">
+        <div className="max-w-xl px-8 md:px-14">
+
+          {missionSlide === 0 ? (
+            <>
+              <p className="text-green-700 font-bold text-sm uppercase tracking-[0.25em] mb-4">
+                Our Mission
               </p>
-            </div>
-          </div>
+
+              <h3 className="text-4xl md:text-5xl font-bold text-green-950 leading-tight mb-5">
+                Natural Nutrition
+                <br />
+                <span className="text-green-600">
+                  for Everyone
+                </span>
+              </h3>
+
+              <p className="text-gray-700 text-base md:text-lg leading-relaxed">
+                To empower individuals with premium organic superfoods
+                that support natural immunity, sustainable energy, and
+                everyday wellness — making preventive nutrition accessible
+                to every household.
+              </p>
+            </>
+          ) : (
+            <>
+              <p className="text-green-700 font-bold text-sm uppercase tracking-[0.25em] mb-4">
+                Our Vision
+              </p>
+
+              <h3 className="text-4xl md:text-5xl font-bold text-green-950 leading-tight mb-5">
+                A Healthier
+                <br />
+                <span className="text-green-600">
+                  Future for Everyone
+                </span>
+              </h3>
+
+              <p className="text-gray-700 text-base md:text-lg leading-relaxed">
+                To become a trusted natural wellness brand where quality,
+                transparency, and accessible nutrition help people build
+                healthier everyday lives.
+              </p>
+            </>
+          )}
+
         </div>
-      </section>
+      </div>
+
+    </div>
+
+    {/* SLIDER DOTS */}
+    <div className="flex justify-center items-center gap-3 mt-6">
+
+      <button
+        onClick={() => setMissionSlide(0)}
+        aria-label="Show Mission"
+        className={`rounded-full transition-all duration-300 ${
+          missionSlide === 0
+            ? "w-8 h-3 bg-green-600"
+            : "w-3 h-3 bg-gray-300 hover:bg-green-400"
+        }`}
+      />
+
+      <button
+        onClick={() => setMissionSlide(1)}
+        aria-label="Show Vision"
+        className={`rounded-full transition-all duration-300 ${
+          missionSlide === 1
+            ? "w-8 h-3 bg-green-600"
+            : "w-3 h-3 bg-gray-300 hover:bg-green-400"
+        }`}
+      />
+
+    </div>
+
+  </div>
+</section>
 
       {/* ── MANUFACTURING PHILOSOPHY ────────────────────────────────────────── */}
       <section className="py-24 bg-white">
