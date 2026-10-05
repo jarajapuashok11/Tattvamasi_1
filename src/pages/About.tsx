@@ -60,7 +60,7 @@ export default function About() {
 useEffect(() => {
   const interval = setInterval(() => {
     setMissionSlide((prev) => (prev + 1) % 2);
-  }, 4000);
+  }, 10000);
 
   return () => clearInterval(interval);
 }, []);
@@ -259,49 +259,192 @@ useEffect(() => {
 
   </div>
 </section>
+{/* ── WATCH AND BUY ───────────────────────────────────────────────────── */}
+<section className="py-20 bg-[#fdfcf8] overflow-hidden">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      {/* ── MANUFACTURING PHILOSOPHY ────────────────────────────────────────── */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            {/* Left — sticky content */}
-            <div className="lg:sticky lg:top-28">
-              <span className="text-green-600 font-bold text-xs uppercase tracking-[0.3em] block mb-4">Manufacturing Philosophy</span>
-              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6" style={{ letterSpacing: '-0.02em' }}>
-                Made with Obsessive Care
-              </h2>
-              <p className="text-gray-600 text-lg leading-[1.8] mb-8">
-                We don't just manufacture products — we engineer health outcomes. Every step of our process is designed to deliver the maximum possible wellness benefit to you.
-              </p>
-              <div className="relative rounded-3xl overflow-hidden h-72">
-                <img src="https://images.pexels.com/photos/3735218/pexels-photo-3735218.jpeg" alt="Manufacturing" className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6">
-                  <span className="text-white font-semibold text-sm">GMP-certified production facility · Mumbai, India</span>
-                </div>
-              </div>
-            </div>
+    {/* Heading */}
+    <div className="text-center mb-12">
+      <h2 className="text-4xl md:text-5xl font-bold text-[#49321f]">
+        Watch and Buy
+      </h2>
 
-            {/* Right — steps */}
-            <div className="space-y-8">
-              {manufacturingSteps.map((item, i) => (
-                <div key={i} className="group flex gap-6 bg-gray-50 hover:bg-green-50 rounded-3xl p-7 border border-gray-100 hover:border-green-200 transition-all duration-500">
-                  <div className="shrink-0">
-                    <div className="w-12 h-12 bg-green-100 group-hover:bg-green-600 rounded-xl flex items-center justify-center transition-colors duration-500">
-                      <item.icon className="w-6 h-6 text-green-600 group-hover:text-white transition-colors duration-500" />
-                    </div>
-                  </div>
-                  <div>
-                    <span className="text-green-600 text-xs font-bold uppercase tracking-widest block mb-1">Step {item.step}</span>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
-                    <p className="text-gray-600 text-sm leading-[1.7]">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+      <p className="text-gray-500 mt-3 text-sm md:text-base">
+        Discover our products through real videos
+      </p>
+    </div>
+
+    {/* Video Cards */}
+    <div className="relative">
+
+      <div className="flex gap-7 overflow-x-auto scrollbar-hide pb-6">
+
+        {/* Video 1 */}
+        <div className="min-w-[280px] sm:min-w-[310px] md:min-w-[330px]
+                        bg-white rounded-xl shadow-md overflow-hidden
+                        border border-gray-100">
+
+          <div className="relative h-[500px] bg-gray-200">
+
+            <video
+              className="w-full h-full object-cover"
+              controls
+              muted
+              playsInline
+              loop
+            >
+              <source src="/watch-buy/video1.mp4" type="video/mp4" />
+            </video>
+
           </div>
+
+          <div className="p-4">
+            <h3 className="font-semibold text-gray-900">
+              Moringa Powder
+            </h3>
+
+            <p className="text-green-700 font-bold text-lg mt-1">
+              ₹499
+            </p>
+          </div>
+
         </div>
-      </section>
+
+
+        {/* Video 2 */}
+        <div className="min-w-[280px] sm:min-w-[310px] md:min-w-[330px]
+                        bg-white rounded-xl shadow-md overflow-hidden
+                        border border-gray-100">
+
+          <div className="relative h-[500px] bg-gray-200">
+
+            <video
+              className="w-full h-full object-cover"
+              controls
+              muted
+              playsInline
+              loop
+            >
+              <source src="/watch-buy/video2.mp4" type="video/mp4" />
+            </video>
+
+          </div>
+
+          <div className="p-4">
+            <h3 className="font-semibold text-gray-900">
+              Amla Powder
+            </h3>
+
+            <p className="text-green-700 font-bold text-lg mt-1">
+              ₹399
+            </p>
+          </div>
+
+        </div>
+
+
+        {/* Video 3 */}
+        <div className="min-w-[280px] sm:min-w-[310px] md:min-w-[330px]
+                        bg-white rounded-xl shadow-md overflow-hidden
+                        border border-gray-100">
+
+          <div className="relative h-[500px] bg-gray-200">
+
+            <video
+              className="w-full h-full object-cover"
+              controls
+              muted
+              playsInline
+              loop
+            >
+              <source src="/watch-buy/video3.mp4" type="video/mp4" />
+            </video>
+
+          </div>
+
+          <div className="p-4">
+            <h3 className="font-semibold text-gray-900">
+              Beetroot Powder
+            </h3>
+
+            <p className="text-green-700 font-bold text-lg mt-1">
+              ₹449
+            </p>
+          </div>
+
+        </div>
+
+
+        {/* Video 4 */}
+        <div className="min-w-[280px] sm:min-w-[310px] md:min-w-[330px]
+                        bg-white rounded-xl shadow-md overflow-hidden
+                        border border-gray-100">
+
+          <div className="relative h-[500px] bg-gray-200">
+
+            <video
+              className="w-full h-full object-cover"
+              controls
+              muted
+              playsInline
+              loop
+            >
+              <source src="/watch-buy/video4.mp4" type="video/mp4" />
+            </video>
+
+          </div>
+
+          <div className="p-4">
+            <h3 className="font-semibold text-gray-900">
+              Turmeric Powder
+            </h3>
+
+            <p className="text-green-700 font-bold text-lg mt-1">
+              ₹349
+            </p>
+          </div>
+
+        </div>
+
+
+        {/* Video 5 */}
+        <div className="min-w-[280px] sm:min-w-[310px] md:min-w-[330px]
+                        bg-white rounded-xl shadow-md overflow-hidden
+                        border border-gray-100">
+
+          <div className="relative h-[500px] bg-gray-200">
+
+            <video
+              className="w-full h-full object-cover"
+              controls
+              muted
+              playsInline
+              loop
+            >
+              <source src="/watch-buy/video5.mp4" type="video/mp4" />
+            </video>
+
+          </div>
+
+          <div className="p-4">
+            <h3 className="font-semibold text-gray-900">
+              Spirulina Powder
+            </h3>
+
+            <p className="text-green-700 font-bold text-lg mt-1">
+              ₹549
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
+      
 
       {/* ── CORE VALUES ────────────────────────────────────────────────────── */}
       <section className="py-24 bg-gray-50">
