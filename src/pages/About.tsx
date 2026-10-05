@@ -1,5 +1,18 @@
+import { useEffect, useState } from 'react';
 import { Leaf, Heart, Zap, Users, CheckCircle, FlaskConical, Truck, Sprout } from 'lucide-react';
+import about1 from '../assets/about/about-1.jpg';
+import about2 from '../assets/about/about-2.jpg';
+import about3 from '../assets/about/about-3.jpg';
+import about4 from '../assets/about/about-4.jpg';
+import about5 from '../assets/about/about-5.jpg';
 
+const aboutImages = [
+  about1,
+  about2,
+  about3,
+  about4,
+  about5,
+];
 const coreValues = [
   {
     icon: Leaf,
@@ -51,14 +64,34 @@ const manufacturingSteps = [
 ];
 
 export default function About() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrentSlide((prev) => (prev + 1) % aboutImages.length);
+  }, 4000);
+
+  return () => clearInterval(interval);
+}, []);
   return (
     <div className="min-h-screen bg-white pt-16 lg:pt-20">
 
       {/* ── HERO ────────────────────────────────────────────────────────────── */}
       <section className="relative py-32 bg-gradient-to-br from-green-950 to-green-900 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <img src="https://images.pexels.com/photos/1407305/pexels-photo-1407305.jpeg" alt="" className="w-full h-full object-cover" />
-        </div>
+        <div className="absolute inset-0">
+  <video
+    autoPlay
+    muted
+    loop
+    playsInline
+    className="w-full h-full object-cover"
+  >
+    <source src="/about-tattvamasi.mp4" type="video/mp4" />
+  </video>
+
+  {/* Dark overlay for readable text */}
+  <div className="absolute inset-0 bg-green-950/70" />
+</div>
         <div className="relative max-w-4xl mx-auto px-4 text-center">
           <span className="text-green-400 font-bold text-xs uppercase tracking-[0.3em] block mb-6">About Tatvamasi</span>
           <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6" style={{ letterSpacing: '-0.03em' }}>
@@ -111,6 +144,32 @@ export default function About() {
               <span className="text-green-700 font-semibold"> Transparency over marketing</span>.
               <span className="text-green-700 font-semibold"> Impact over margins</span>.
             </p>
+            {/* About Tattvamasi Slideshow */}
+<div className="mt-12">
+  <div className="relative max-w-5xl mx-auto overflow-hidden rounded-3xl shadow-xl">
+    <img
+      src={aboutImages[currentSlide]}
+      alt={`About Tattvamasi ${currentSlide + 1}`}
+      className="w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover transition-opacity duration-700"
+    />
+  </div>
+
+  {/* Slide dots */}
+  <div className="flex justify-center items-center gap-3 mt-6">
+    {aboutImages.map((_, index) => (
+      <button
+        key={index}
+        onClick={() => setCurrentSlide(index)}
+        aria-label={`Go to slide ${index + 1}`}
+        className={`transition-all duration-300 rounded-full ${
+          currentSlide === index
+            ? 'w-8 h-3 bg-green-600'
+            : 'w-3 h-3 bg-gray-300 hover:bg-green-400'
+        }`}
+      />
+    ))}
+  </div>
+</div>
 
             <div className="flex flex-wrap gap-8 justify-center pt-8 mt-8 border-t border-gray-200">
               {[
