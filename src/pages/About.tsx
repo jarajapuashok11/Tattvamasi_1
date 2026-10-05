@@ -1,18 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Leaf, Heart, Zap, Users, CheckCircle, FlaskConical, Truck, Sprout } from 'lucide-react';
-import about1 from '../assets/about/about-1.jpg';
-import about2 from '../assets/about/about-2.jpg';
-import about3 from '../assets/about/about-3.jpg';
-import about4 from '../assets/about/about-4.jpg';
-import about5 from '../assets/about/about-5.jpg';
 
-const aboutImages = [
-  about1,
-  about2,
-  about3,
-  about4,
-  about5,
-];
+
 const coreValues = [
   {
     icon: Leaf,
@@ -64,15 +53,6 @@ const manufacturingSteps = [
 ];
 
 export default function About() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-useEffect(() => {
-  const interval = setInterval(() => {
-    setCurrentSlide((prev) => (prev + 1) % aboutImages.length);
-  }, 4000);
-
-  return () => clearInterval(interval);
-}, []);
   return (
     <div className="min-h-screen bg-white pt-16 lg:pt-20">
 
