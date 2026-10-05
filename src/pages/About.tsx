@@ -56,20 +56,20 @@ const manufacturingSteps = [
 
 export default function About() {
   const [missionSlide, setMissionSlide] = useState(0);
-  const [activeValue, setActiveValue] = useState(0);
-useEffect(() => {
+const [activeValue, setActiveValue] = useState(0);
 
-    const interval = setInterval(() => {
-      setMissionSlide((prev) => (prev + 1) % 2);
-    }, 4000);
-
-    return () => clearInterval(interval);
-
-  }, []);
 useEffect(() => {
   const interval = setInterval(() => {
     setMissionSlide((prev) => (prev + 1) % 2);
   }, 10000);
+
+  return () => clearInterval(interval);
+}, []);
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setActiveValue((prev) => (prev + 1) % coreValues.length);
+  }, 4000);
 
   return () => clearInterval(interval);
 }, []);
@@ -550,25 +550,26 @@ useEffect(() => {
     </div>
   </div>
 </section>
+<style>{`
+  @keyframes coreValueLine {
+    0% {
+      width: 0%;
+    }
 
+    75% {
+      width: 100%;
+    }
+
+    100% {
+      width: 100%;
+    }
+  }
+
+  .animate-core-line {
+    animation: coreValueLine 4s linear forwards;
+  }
+`}</style>
       
-
-      {/* Core Values Animation */}
-      <style>{`
-        @keyframes coreValueLine {
-          0% {
-            width: 0%;
-          }
-
-          100% {
-            width: 100%;
-          }
-        }
-
-        .animate-core-line {
-          animation: coreValueLine 3s linear forwards;
-        }
-      `}</style>
     </div>
   );
 }
