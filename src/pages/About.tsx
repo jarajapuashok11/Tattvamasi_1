@@ -77,7 +77,7 @@ useEffect(() => {
     <div className="min-h-screen bg-white pt-16 lg:pt-20">
 
       {/* ── HERO ────────────────────────────────────────────────────────────── */}
-      <section className="relative min-h-[700px] bg-gradient-to-br from-green-950 to-green-900 text-white overflow-hidden">
+      <section className="relative py-36 bg-gradient-to-br from-green-950 to-green-900 text-white overflow-hidden">
         <div className="absolute inset-0">
   <video
     autoPlay
