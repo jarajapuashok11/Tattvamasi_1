@@ -165,96 +165,97 @@ useEffect(() => {
         Mission & Vision
       </h2>
     </div>
+              {/* MISSION & VISION SLIDER */}
 
-    {/* Banner Slider */}
-    <div className="relative overflow-hidden rounded-3xl shadow-lg">
+<div className="relative overflow-hidden rounded-3xl shadow-xl">
 
-      {/* IMAGE */}
-      <img
-        src={missionSlide === 0 ? missionImage : visionImage}
-        alt={missionSlide === 0 ? "Our Mission" : "Our Vision"}
-        className="w-full h-[450px] md:h-[500px] object-cover"
-      />
+  {/* IMAGE */}
+  <img
+    src={missionSlide === 0 ? missionImage : visionImage}
+    alt={missionSlide === 0 ? "Our Mission" : "Our Vision"}
+    className="w-full h-[450px] md:h-[520px] object-cover"
+  />
 
-      {/* Soft overlay for text */}
-      <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/75 to-transparent" />
+  {/* TEXT OVERLAY */}
+  <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/75 to-transparent" />
 
-      {/* TEXT */}
-      <div className="absolute inset-0 flex items-center">
-        <div className="max-w-xl px-8 md:px-14">
+  <div className="absolute inset-0 flex items-center">
 
-          {missionSlide === 0 ? (
-            <>
-              <p className="text-green-700 font-bold text-sm uppercase tracking-[0.25em] mb-4">
-                Our Mission
-              </p>
+    <div className="w-full md:w-1/2 px-8 md:px-14">
 
-              <h3 className="text-4xl md:text-5xl font-bold text-green-950 leading-tight mb-5">
-                Natural Nutrition
-                <br />
-                <span className="text-green-600">
-                  for Everyone
-                </span>
-              </h3>
+      {missionSlide === 0 ? (
+        <>
+          <p className="text-green-700 font-bold text-sm uppercase tracking-[0.25em] mb-5">
+            Our Mission
+          </p>
 
-              <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-                To empower individuals with premium organic superfoods
-                that support natural immunity, sustainable energy, and
-                everyday wellness — making preventive nutrition accessible
-                to every household.
-              </p>
-            </>
-          ) : (
-            <>
-              <p className="text-green-700 font-bold text-sm uppercase tracking-[0.25em] mb-4">
-                Our Vision
-              </p>
+          <h3 className="text-4xl md:text-5xl font-bold text-green-950 leading-tight mb-6">
+            Natural Nutrition
+            <br />
+            <span className="text-green-600">
+              for Everyone
+            </span>
+          </h3>
 
-              <h3 className="text-4xl md:text-5xl font-bold text-green-950 leading-tight mb-5">
-                A Healthier
-                <br />
-                <span className="text-green-600">
-                  Future for Everyone
-                </span>
-              </h3>
+          <p className="text-gray-700 text-base md:text-lg leading-relaxed">
+            To empower individuals with premium organic superfoods
+            that support natural immunity, sustainable energy, and
+            everyday wellness — making preventive nutrition accessible
+            to every household.
+          </p>
+        </>
+      ) : (
+        <>
+          <p className="text-green-700 font-bold text-sm uppercase tracking-[0.25em] mb-5">
+            Our Vision
+          </p>
 
-              <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-                To become a trusted natural wellness brand where quality,
-                transparency, and accessible nutrition help people build
-                healthier everyday lives.
-              </p>
-            </>
-          )}
+          <h3 className="text-4xl md:text-5xl font-bold text-green-950 leading-tight mb-6">
+            A Healthier
+            <br />
+            <span className="text-green-600">
+              Future for Everyone
+            </span>
+          </h3>
 
-        </div>
-      </div>
+          <p className="text-gray-700 text-base md:text-lg leading-relaxed">
+            To make natural nutrition simple, accessible, and a part
+            of everyday life while building a trusted wellness brand
+            focused on quality and transparency.
+          </p>
+        </>
+      )}
 
     </div>
+  </div>
+</div>
 
-    {/* SLIDER DOTS */}
-    <div className="flex justify-center items-center gap-3 mt-6">
+{/* DOTS */}
 
-      <button
-        onClick={() => setMissionSlide(0)}
-        aria-label="Show Mission"
-        className={`rounded-full transition-all duration-300 ${
-          missionSlide === 0
-            ? "w-8 h-3 bg-green-600"
-            : "w-3 h-3 bg-gray-300 hover:bg-green-400"
-        }`}
-      />
+<div className="flex justify-center items-center gap-3 mt-6">
 
-      <button
-        onClick={() => setMissionSlide(1)}
-        aria-label="Show Vision"
-        className={`rounded-full transition-all duration-300 ${
-          missionSlide === 1
-            ? "w-8 h-3 bg-green-600"
-            : "w-3 h-3 bg-gray-300 hover:bg-green-400"
-        }`}
-      />
+  <button
+    onClick={() => setMissionSlide(0)}
+    aria-label="Mission"
+    className={`rounded-full transition-all duration-300 ${
+      missionSlide === 0
+        ? "w-10 h-3 bg-green-600"
+        : "w-3 h-3 bg-gray-300 hover:bg-green-400"
+    }`}
+  />
 
-    </div>
+  <button
+    onClick={() => setMissionSlide(1)}
+    aria-label="Vision"
+    className={`rounded-full transition-all duration-300 ${
+      missionSlide === 1
+        ? "w-10 h-3 bg-green-600"
+        : "w-3 h-3 bg-gray-300 hover:bg-green-400"
+    }`}
+  />
+
+</div>
+    
 
   </div>
 </section>
