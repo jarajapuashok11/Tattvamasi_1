@@ -161,9 +161,9 @@ useEffect(() => {
         Purpose
       </span>
 
-      <h2 className="text-4xl lg:text-5xl font-bold text-red-600">
-  TEST MISSION & VISION
-</h2>
+      <h2 className="text-4xl lg:text-5xl font-bold text-gray-900">
+        Mission & Vision
+      </h2>
     </div>
               {/* MISSION & VISION SLIDER */}
 
