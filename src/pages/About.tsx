@@ -61,7 +61,7 @@ useEffect(() => {
 
     const interval = setInterval(() => {
       setMissionSlide((prev) => (prev + 1) % 2);
-    }, 10000);
+    }, 4000);
 
     return () => clearInterval(interval);
 
